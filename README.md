@@ -34,7 +34,7 @@
 
 ## 2. AI Scientist
 
-这一章主要看 autoresearch loop：提出候选 -> 实现候选 -> 评估候选 -> 分析失败 -> 记录经验 -> 继续迭代。进一步的变化主要是并行 autoresearch loop、多 agent 架构、memory/database 设计和 evaluator/benchmark 设计。
+这一章主要是各类 autoresearch loop，大致流程就是 提出候选 -> 实现候选 -> 评估候选 -> 分析失败 -> 记录经验 -> 继续迭代。进一步的变化主要是并行 autoresearch loop、多 agent 架构、memory/database 设计和 evaluator/benchmark 设计。
 
 ### 2.1 Autoresearch loop
 
@@ -76,7 +76,7 @@
 
 ## 3. AI assistant
 
-这一章主要看两类工作：一类是比较系统化的 pipeline，把研究材料组织成论文、slides、poster、video、homepage 等产物；另一类是 skills 合集，把科研经验和写作经验整理成 agent 可调用的能力包。
+这一部分主要有两类工作：一类是比较系统化的 pipeline，把研究材料组织成论文、slides、poster、video、homepage 等产物；另一类是 skills 合集，把科研经验和写作经验整理成 agent 可调用的能力包。
 
 ### 3.1 系统化 Pipeline
 
