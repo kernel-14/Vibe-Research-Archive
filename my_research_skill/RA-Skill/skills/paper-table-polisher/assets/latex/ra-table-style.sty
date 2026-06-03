@@ -1,0 +1,41 @@
+% ra-table-style.sty — semantic helpers for paper tables.
+%
+% Usage:
+%   \usepackage{ra-table-style}
+%   ...
+%   \best{0.812}    % best in column
+%   \second{0.799}  % second-best
+%   \ours{0.815}    % our row, accent-tinted
+%   \tabnote{Caveats and $\dagger$ definitions go here.}
+%
+% Depends on: booktabs, siunitx, multirow, xcolor, colortbl, array.
+% The host paper is responsible for \usepackage{...} on its own copy of these packages.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ra-table-style}[2026/06/03 v1.0 RA-Skill table style helpers]
+
+\RequirePackage{booktabs}
+\RequirePackage{multirow}
+\RequirePackage{xcolor}
+\RequirePackage{colortbl}
+\RequirePackage{array}
+
+% Accent color used for "ours" row tint. Override by redefining before \usepackage.
+\providecommand{\RAAccent}{RAAccentColor}
+\definecolor{RAAccentColor}{HTML}{4F46E5}
+
+% Best in a column.
+\providecommand{\best}[1]{\textbf{#1}}
+% Second-best in a column.
+\providecommand{\second}[1]{\underline{#1}}
+% Our row's value: accent tint plus bold so grayscale prints survive.
+\providecommand{\ours}[1]{\cellcolor{RAAccent!12}\textbf{#1}}
+% Statistically significant marker. Caption must define $p$, test, and $n$.
+\providecommand{\sig}[1]{#1\textsuperscript{$\dagger$}}
+% Table-width footnote that does not break out of \begin{table}.
+\providecommand{\tabnote}[1]{\vspace{2pt}\par\noindent\footnotesize #1}
+
+% A thin spacer for groups when \cmidrule feels heavy.
+\providecommand{\rasep}{\addlinespace[2pt]}
+
+\endinput

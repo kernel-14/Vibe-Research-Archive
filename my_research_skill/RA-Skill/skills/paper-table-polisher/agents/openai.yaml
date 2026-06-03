@@ -1,0 +1,8 @@
+interface:
+  display_name: "Paper Table Polisher"
+  short_description: "Beautiful, booktabs-grade LaTeX tables with semantic highlighting"
+  brand_color: "#0891B2"
+  default_prompt: "Use $paper-table-polisher to convert or author a publication-grade LaTeX table."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Paper Box Styler"
+  short_description: "Unified appendix box styles (prompt / code / case / theorem)"
+  brand_color: "#10B981"
+  default_prompt: "Use $paper-box-styler to wrap appendix content in a consistent breakable styled box."
+
+policy:
+  allow_implicit_invocation: true

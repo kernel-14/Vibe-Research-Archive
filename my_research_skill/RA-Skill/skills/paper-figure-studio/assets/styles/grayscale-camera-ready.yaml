@@ -1,0 +1,17 @@
+key: grayscale-camera-ready
+palette:
+  primary: "#000000"
+  secondary: "#374151"
+  accent: "#6B7280"
+  neutral_bg: "#FFFFFF"
+  neutral_text: "#000000"
+font:
+  label: "Helvetica"
+  fallback: "Arial"
+line:
+  weight: thin
+  arrow: thin
+icon: outline
+background: clean
+motion: none
+notes: "Pure B/W. Use for journals that forbid color or for the camera-ready B/W copy."

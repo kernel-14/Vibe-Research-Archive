@@ -1,0 +1,8 @@
+interface:
+  display_name: "Paper Figure Studio"
+  short_description: "Generate publication-grade paper figures with swappable style presets"
+  brand_color: "#4F46E5"
+  default_prompt: "Use $paper-figure-studio to generate a paper figure from my brief; ask me for figure type, required text, and style preference."
+
+policy:
+  allow_implicit_invocation: true

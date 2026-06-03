@@ -1,0 +1,93 @@
+% ra-box-style.sty — unified appendix boxes for paper-box-styler.
+%
+% Usage:
+%   \usepackage{ra-box-style}                 % default (listings backend, no shell-escape needed)
+%   \usepackage[minted]{ra-box-style}         % opt-in to minted (requires -shell-escape)
+%   \usepackage[fallback]{ra-box-style}       % conservative plain rendering when tcolorbox clashes
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ra-box-style}[2026/06/03 v1.0 RA-Skill appendix box styles]
+
+\newif\ifRAUseMinted\RAUseMintedfalse
+\newif\ifRAFallback\RAFallbackfalse
+
+\DeclareOption{minted}{\RAUseMintedtrue}
+\DeclareOption{fallback}{\RAFallbacktrue}
+\DeclareOption*{\PackageWarning{ra-box-style}{Unknown option \CurrentOption}}
+\ProcessOptions\relax
+
+\RequirePackage{xcolor}
+\RequirePackage{etoolbox}
+
+\providecommand{\RAAccent}{RAAccentColor}
+\providecommand{\RAMuted}{RAMutedColor}
+\definecolor{RAAccentColor}{HTML}{4F46E5}
+\definecolor{RAMutedColor}{HTML}{475569}
+
+\ifRAFallback
+  \newenvironment{RAPromptBox}[1][]{\par\medskip\noindent\textbf{Prompt}\par\nopagebreak\itshape}{\par\medskip}
+  \newenvironment{RACodeBox}[1][]{\par\medskip\noindent\textbf{Code}\par\nopagebreak\ttfamily}{\par\medskip}
+  \newenvironment{RACaseBox}[1][]{\par\medskip\noindent\textbf{Case}\par\nopagebreak}{\par\medskip}
+  \newenvironment{RATheoremBox}[1][]{\par\medskip\noindent\textit{#1.}\enskip}{\par\medskip}
+\else
+  \RequirePackage[most]{tcolorbox}
+
+  % Common base options.
+  \tcbset{
+    rabase/.style={
+      breakable,
+      enhanced,
+      sharp corners,
+      boxrule=0.4pt,
+      left=6pt, right=6pt, top=4pt, bottom=4pt,
+      colback=white,
+      colframe=\RAMuted,
+      coltitle=white,
+      fonttitle=\small\bfseries,
+      attach boxed title to top left={xshift=4pt, yshift=-2pt},
+      boxed title style={colback=\RAMuted, sharp corners},
+    },
+    raprompt/.style={
+      rabase,
+      colframe=\RAAccent,
+      boxed title style={colback=\RAAccent, sharp corners},
+    },
+    racode/.style={rabase},
+    racase/.style={
+      rabase,
+      colback=\RAAccent!6,
+      colframe=\RAAccent,
+      boxed title style={colback=\RAAccent, sharp corners},
+    },
+    ratheorem/.style={
+      rabase,
+      colframe=\RAMuted,
+      coltitle=\RAMuted,
+      fonttitle=\small\itshape,
+      boxed title style={colback=white, sharp corners, boxrule=0pt},
+    },
+  }
+
+  \newenvironment{RAPromptBox}[1][]{\begin{tcolorbox}[raprompt,#1]}{\end{tcolorbox}}
+  \newenvironment{RACodeBox}[1][]{\begin{tcolorbox}[racode,#1]}{\end{tcolorbox}}
+  \newenvironment{RACaseBox}[1][]{\begin{tcolorbox}[racase,#1]}{\end{tcolorbox}}
+  \newenvironment{RATheoremBox}[1][]{\begin{tcolorbox}[ratheorem,#1]}{\end{tcolorbox}}
+\fi
+
+\ifRAUseMinted
+  \RequirePackage{minted}
+  \newcommand{\RACode}[2][python]{\inputminted{#1}{#2}}
+\else
+  \RequirePackage{listings}
+  \lstset{
+    basicstyle=\small\ttfamily,
+    breaklines=true,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false,
+    frame=none,
+  }
+  \newcommand{\RACode}[2][python]{\lstinputlisting[language=#1]{#2}}
+\fi
+
+\endinput

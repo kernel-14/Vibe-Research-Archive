@@ -1,0 +1,20 @@
+% Ablation table — variants of the same method.
+\begin{table}[t]
+  \centering
+  \caption{Ablation of \textsc{<Method>}. The "Full" row is our complete system;
+           each row removes one component.}
+  \label{tab:ablation}
+  \begin{tabular}{l S[table-format=2.2] S[table-format=2.2] r}
+    \toprule
+    Variant & {Acc} & {F1} & {$\Delta$Avg} \\
+    \midrule
+    \rowcolor{RAAccent!12}
+    Full (ours)        & \best{75.62} & \best{74.41} & \multicolumn{1}{c}{--} \\
+    \quad w/o module-A & 73.10 & 72.05 & $-2.44$ \\
+    \quad w/o module-B & 74.02 & 73.11 & $-1.45$ \\
+    \quad w/o module-C & 71.84 & 70.97 & $-3.61$ \\
+    \quad random init  & 68.90 & 67.82 & $-6.65$ \\
+    \bottomrule
+  \end{tabular}
+  \tabnote{All variants share training data and budget. Ablation is on the validation split.}
+\end{table}

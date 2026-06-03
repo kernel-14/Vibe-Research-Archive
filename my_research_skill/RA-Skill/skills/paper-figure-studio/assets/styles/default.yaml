@@ -1,0 +1,17 @@
+key: default
+palette:
+  primary: "#1F2937"
+  secondary: "#4B5563"
+  accent: "#6366F1"
+  neutral_bg: "#FFFFFF"
+  neutral_text: "#111827"
+font:
+  label: "Inter"
+  fallback: "Arial"
+line:
+  weight: thin
+  arrow: thin
+icon: flat
+background: clean
+motion: none
+notes: "Conference-safe baseline. Pick this when no preference is given."

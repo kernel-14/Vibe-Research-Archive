@@ -1,0 +1,19 @@
+% ra-colors.sty — single source of truth for accents shared by tables/boxes.
+% Pull this into your paper-style/ once; ra-table-style and ra-box-style respect it.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ra-colors}[2026/06/03 v1.0 RA-Skill shared color palette]
+
+\RequirePackage{xcolor}
+
+% Vivid academic palette (default).
+\definecolor{RAAccentColor}{HTML}{4F46E5}
+\definecolor{RAMutedColor}{HTML}{475569}
+\definecolor{RASuccessColor}{HTML}{10B981}
+\definecolor{RAWarningColor}{HTML}{F59E0B}
+\definecolor{RABgColor}{HTML}{F8FAFC}
+
+\providecommand{\RAAccent}{RAAccentColor}
+\providecommand{\RAMuted}{RAMutedColor}
+
+\endinput

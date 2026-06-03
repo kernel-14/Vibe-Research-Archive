@@ -1,0 +1,36 @@
+vivid-academic:
+  primary: "#4F46E5"
+  secondary: "#0891B2"
+  accent: "#F97316"
+  success: "#10B981"
+  warning: "#F59E0B"
+  neutral_bg: "#F8FAFC"
+  neutral_text: "#111827"
+
+minimal-academic:
+  primary: "#111827"
+  secondary: "#374151"
+  accent: "#2563EB"
+  neutral_bg: "#F8FAFC"
+  neutral_text: "#0F172A"
+
+grayscale-camera-ready:
+  primary: "#000000"
+  secondary: "#374151"
+  accent: "#6B7280"
+  neutral_bg: "#FFFFFF"
+  neutral_text: "#000000"
+
+cool-pastel:
+  primary: "#3B82F6"
+  secondary: "#A78BFA"
+  accent: "#F472B6"
+  neutral_bg: "#F8FAFC"
+  neutral_text: "#0F172A"
+
+warm-paper:
+  primary: "#7C2D12"
+  secondary: "#B45309"
+  accent: "#0E7490"
+  neutral_bg: "#FFFBEB"
+  neutral_text: "#1C1917"

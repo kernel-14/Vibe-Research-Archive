@@ -1,0 +1,15 @@
+% ra-common.sty — shared LaTeX helpers used by multiple RA-Skill style packages.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ra-common}[2026/06/03 v1.0 RA-Skill shared helpers]
+
+\RequirePackage{ra-colors}
+
+% Centralized smart spacing for floats.
+\providecommand{\RASetFloatSpacing}{%
+  \setlength{\textfloatsep}{8pt plus 2pt minus 2pt}%
+  \setlength{\floatsep}{6pt plus 2pt minus 2pt}%
+  \setlength{\intextsep}{6pt plus 2pt minus 2pt}%
+}
+
+\endinput

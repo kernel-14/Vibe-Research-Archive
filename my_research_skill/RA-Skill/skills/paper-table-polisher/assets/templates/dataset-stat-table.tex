@@ -1,0 +1,17 @@
+% Dataset statistics table.
+\begin{table}[t]
+  \centering
+  \caption{Dataset statistics. All splits use the official partition.}
+  \label{tab:datasets}
+  \begin{tabular}{l S[table-format=6.0,group-separator={,}] S[table-format=5.0,group-separator={,}]
+                    S[table-format=5.0,group-separator={,}] S[table-format=2.1] r}
+    \toprule
+    Dataset & {Train} & {Dev} & {Test} & {Avg.\ tokens} & Domain \\
+    \midrule
+    DS-Alpha   & 120000 & 5000  & 10000 & 84.2 & news \\
+    DS-Beta    & 50000  & 2500  & 5000  & 36.7 & dialog \\
+    DS-Gamma   & 8000   & 1000  & 1000  & 121.4 & legal \\
+    \bottomrule
+  \end{tabular}
+  \tabnote{Citations: DS-Alpha~\citep{...}, DS-Beta~\citep{...}, DS-Gamma~\citep{...}.}
+\end{table}
