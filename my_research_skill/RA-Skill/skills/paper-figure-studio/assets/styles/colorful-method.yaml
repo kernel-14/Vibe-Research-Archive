@@ -1,0 +1,19 @@
+key: colorful-method
+palette:
+  primary: "#4F46E5"
+  secondary: "#0891B2"
+  accent: "#F97316"
+  success: "#10B981"
+  warning: "#F59E0B"
+  neutral_bg: "#F8FAFC"
+  neutral_text: "#111827"
+font:
+  label: "Comic Sans MS"
+  fallback: "Arial"
+line:
+  weight: thin
+  arrow: thin
+icon: flat
+background: clean
+motion: none
+notes: "Vivid but disciplined. Best for method overviews and architecture figures."

@@ -1,0 +1,19 @@
+% Code box — two backends. Pick whichever the build supports.
+% Requires \usepackage{ra-box-style} (default = listings backend; pass [minted] option to switch).
+
+% --- Listings backend (default; no shell-escape required) ---
+\begin{RACodeBox}[title={Listing: minimal verifier}]
+\begin{lstlisting}[language=Python]
+def verify(prediction, gold):
+    """Return True iff prediction matches gold under the task metric."""
+    return prediction.strip().lower() == gold.strip().lower()
+\end{lstlisting}
+\end{RACodeBox}
+
+% --- Minted backend (requires `pdflatex -shell-escape` and \usepackage[minted]{ra-box-style}) ---
+%\begin{RACodeBox}[title={Listing: minimal verifier}]
+%\begin{minted}[fontsize=\small, breaklines]{python}
+%def verify(prediction, gold):
+%    return prediction.strip().lower() == gold.strip().lower()
+%\end{minted}
+%\end{RACodeBox}

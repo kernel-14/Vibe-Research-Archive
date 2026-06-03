@@ -1,0 +1,8 @@
+interface:
+  display_name: "Paper Figure Imagegen"
+  short_description: "Generate consistent AI paper figures"
+  brand_color: "#6366F1"
+  default_prompt: "Use $paper-figure-imagegen to generate a colorful AI-conference-style method figure from my figure brief."
+
+policy:
+  allow_implicit_invocation: true

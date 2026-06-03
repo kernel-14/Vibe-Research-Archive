@@ -1,0 +1,14 @@
+figure_default:
+  label: "Comic Sans MS"
+  fallback: "Arial"
+  notes: "Used by paper-figure-studio for in-figure labels. The colorful-method preset relies on this."
+
+figure_minimal:
+  label: "Source Sans Pro"
+  fallback: "Helvetica"
+  notes: "Camera-ready / minimal. Cleaner glyphs at small sizes."
+
+latex_default:
+  text: "default conference template"
+  mono: "Inconsolata if available; otherwise the template's tt default"
+  notes: "Tables/boxes inherit text font from the conference class. Do not override."

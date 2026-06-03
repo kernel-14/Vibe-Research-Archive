@@ -1,0 +1,17 @@
+key: minimal-academic
+palette:
+  primary: "#111827"
+  secondary: "#374151"
+  accent: "#2563EB"
+  neutral_bg: "#F8FAFC"
+  neutral_text: "#0F172A"
+font:
+  label: "Source Sans Pro"
+  fallback: "Helvetica"
+line:
+  weight: thin
+  arrow: thin
+icon: outline
+background: clean
+motion: none
+notes: "Camera-ready. Lots of whitespace, restrained accents, fine for grayscale print."

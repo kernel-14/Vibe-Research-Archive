@@ -1,0 +1,8 @@
+interface:
+  display_name: "Paper Layout Fixer"
+  short_description: "Compile-and-parse LaTeX layout diagnostician with minimal local fixes"
+  brand_color: "#F97316"
+  default_prompt: "Use $paper-layout-fixer to compile my LaTeX, read the log, and propose minimal fixes for placement / overfull / reference warnings."
+
+policy:
+  allow_implicit_invocation: true

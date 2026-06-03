@@ -1,0 +1,17 @@
+% Case taxonomy table — categories with examples.
+% Requires \usepackage{tabularx}
+\begin{table*}[t]
+  \centering
+  \caption{Failure taxonomy with representative examples.}
+  \label{tab:cases}
+  \begin{tabularx}{\textwidth}{l X r r}
+    \toprule
+    Category & Example & {Count} & {\%} \\
+    \midrule
+    Hallucinated entity & \textit{"...the 2024 Nobel laureate Dr.\ X..."} (no such person) & 24 & 21.4 \\
+    Misordered steps    & Output puts step 3 before step 2 in a recipe.                     & 18 & 16.1 \\
+    Confident refusal   & Refuses despite request being safe and well-formed.               & 11 & 9.8  \\
+    \bottomrule
+  \end{tabularx}
+  \tabnote{Annotated by 3 human raters; Cohen's $\kappa = 0.71$.}
+\end{table*}

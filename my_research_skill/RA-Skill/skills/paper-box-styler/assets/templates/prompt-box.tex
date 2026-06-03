@@ -1,0 +1,19 @@
+% Prompt box — long natural-language prompt, breakable.
+% Requires \usepackage{ra-box-style}
+\begin{RAPromptBox}[title={Prompt for <Component>}]
+You are <role>. Your task is to <goal>.
+
+Constraints:
+\begin{itemize}
+  \item <constraint 1>
+  \item <constraint 2>
+\end{itemize}
+
+Output format:
+\begin{verbatim}
+{
+  "field_a": "...",
+  "field_b": "..."
+}
+\end{verbatim}
+\end{RAPromptBox}

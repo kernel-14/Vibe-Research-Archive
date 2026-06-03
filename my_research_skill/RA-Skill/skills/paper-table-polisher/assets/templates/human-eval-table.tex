@@ -1,0 +1,18 @@
+% Human evaluation table — systems x dimensions on Likert means.
+\begin{table}[t]
+  \centering
+  \caption{Human evaluation (1--5 Likert; higher is better). $\dagger$ = significantly better
+           than the strongest baseline ($p<0.05$, Wilcoxon, $n=200$).}
+  \label{tab:human}
+  \begin{tabular}{l S[table-format=1.2] S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
+    \toprule
+    System & {Helpful} & {Honest} & {Harmless} & {Overall} \\
+    \midrule
+    Baseline-A     & 3.42 & 3.61 & 4.10 & 3.71 \\
+    Baseline-B     & \second{3.78} & \second{3.95} & \second{4.22} & \second{3.98} \\
+    \rowcolor{RAAccent!12}
+    Ours           & \sig{\best{4.05}} & \best{4.12} & \best{4.31} & \sig{\best{4.16}} \\
+    \bottomrule
+  \end{tabular}
+  \tabnote{200 prompts $\times$ 3 raters per system. Inter-rater Krippendorff $\alpha=0.68$.}
+\end{table}

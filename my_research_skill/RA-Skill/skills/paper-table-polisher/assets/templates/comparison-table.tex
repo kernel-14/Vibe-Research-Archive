@@ -1,0 +1,21 @@
+% Comparison table — methods x metrics.
+% Requires: \usepackage{booktabs, siunitx, ra-table-style}
+\begin{table}[t]
+  \centering
+  \caption{Main results on <Benchmark>. \textbf{Bold} = best; \underline{underline} = second-best;
+           tinted row = ours. $\dagger$ = significant ($p<0.05$, paired bootstrap, $n=1000$).}
+  \label{tab:main}
+  \begin{tabular}{l S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2]}
+    \toprule
+    Method & {Acc} & {F1} & {EM} & {Avg} \\
+    \midrule
+    Baseline-A    & 71.20 & 70.10 & 65.30 & 68.87 \\
+    Baseline-B    & 72.45 & 71.30 & 66.80 & 70.18 \\
+    Strong-Prior  & \second{74.10} & \second{73.05} & \second{68.40} & \second{71.85} \\
+    \rasep
+    \rowcolor{RAAccent!12}
+    Ours          & \best{75.62} & \best{74.41} & \best{69.92} & \best{73.32} \\
+    \bottomrule
+  \end{tabular}
+  \tabnote{Numbers are mean over 5 seeds. Variance reported in Appendix Table~\ref{tab:variance}.}
+\end{table}
