@@ -1,10 +1,10 @@
-# my_research_skill — 个人科研 Skill 套件
+# my_research_skill 
 
-这一目录里收纳了我在写论文 / 做调研过程中沉淀下来的 Skill。它们都遵循 Claude Code 与 Codex 的 Skill 规范，单文件 SKILL.md 形式，按需加载，**不要求安装**——把对应目录拷到你 agent 的 skills 路径下即可被识别。
+个人写paper / 做调研过程中沉淀下来的 Skill收录。
 
 ## 思路
 
-我把科研流程拆成两类：**输入侧（idea / topic 探索）** 与 **输出侧（论文产出）**。两类各自有不同的失败模式，所以拆成不同 Skill：
+分为**输入侧（idea / topic 探索）** 与 **输出侧（论文产出）**：
 
 - 输入侧：`topic-mentor` → `brainstorm-search` → `diffusion-idea`，从入门 → 全景调研 → 假设验证。
 - 输出侧：`RA-Skill/` 下的四件套（figure / table / box / layout）+ 历史版本 `paper-figure-imagegen`。
@@ -31,7 +31,7 @@ my_research_skill/
     shared/                  # 共用 palette / fonts / sty
     proposal.md              # 原始需求
     research.md              # 设计调研与决策依据
-  paper-figure-imagegen/     # 单论文专用的初代版本（已清掉硬编码 key）
+  paper-figure-imagegen/     # 单论文专用的初代版本
 ```
 
 ---
@@ -168,9 +168,9 @@ python skills/paper-layout-fixer/scripts/latex_log_report.py build/paper.log --f
 
 ---
 
-## 关于凭证（重要）
+## 关于凭证
 
-**不要把 API key 提交到这个仓库**。所有脚本现在都是从以下顺序读取：
+所有脚本现在都是从以下顺序读取：
 
 1. CLI flag（`--api-key` / `--base-url`）
 2. 环境变量（`OPENAI_API_KEY` / `OPENAI_BASE_URL`）
@@ -179,11 +179,4 @@ python skills/paper-layout-fixer/scripts/latex_log_report.py build/paper.log --f
 
 `.dry-run` 模式只会回显"key 是否解析到、来源是哪个 env 字段"，**不会**回显 key 本身。
 
----
 
-## 历史与设计依据
-
-- `RA-Skill/proposal.md`：最初的需求（绘图 / 表格 / 排版 / 盒子）。
-- `RA-Skill/research.md`：为什么要拆成 4 个独立 skill 而不是 1 个、每个 skill 的边界、阶段化实现顺序、风险点。
-
-如果想改造或裁剪，先看 `research.md` 里的"风险与建议"和"最小可行版本"——比直接读 SKILL.md 更能拿到上下文。
