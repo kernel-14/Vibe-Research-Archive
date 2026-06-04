@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{lipsum}
+
+\begin{document}
+
+\section{Example}
+
+This paragraph intentionally contains a very long unbreakable token to trigger an overfull box:
+\noindent ThisIsAnIntentionallyLongUnbreakableIdentifierThatShouldTriggerAnOverfullHBoxWarningForTheLayoutFixerExample.
+
+Figure~\ref{fig:missing} is referenced before it exists.
+
+\begin{figure}[t]
+\centering
+\rule{\linewidth}{1.2in}
+\caption{A placeholder figure that compiles but keeps the example small.}
+\label{fig:placeholder}
+\end{figure}
+
+\lipsum[1]
+
+\end{document}

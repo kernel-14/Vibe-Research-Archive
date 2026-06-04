@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+
+\makeatletter
+\def\input@path{{../../RA-Skill/skills/paper-box-styler/assets/latex/}}
+\makeatother
+\usepackage{ra-box-style}
+
+\begin{document}
+
+\section*{Paper Box Styler Example}
+
+\begin{RAPromptBox}[title={Prompt for Critic Review}]
+You are a skeptical empiricist. Find the fatal flaw in this hypothesis.
+If you cannot find one, state what additional evidence would change your mind.
+\end{RAPromptBox}
+
+\begin{RACaseBox}[title={Case Study}]
+\textbf{Input:} A research idea with no ground-truth label.
+
+\textbf{Output:} Three independent critic reviews and a disagreement summary.
+\end{RACaseBox}
+
+\begin{RATheoremBox}[title={Definition}]
+A disagreement pattern is robust when critics with different biases independently
+identify compatible strengths and non-overlapping weaknesses.
+\end{RATheoremBox}
+
+\end{document}

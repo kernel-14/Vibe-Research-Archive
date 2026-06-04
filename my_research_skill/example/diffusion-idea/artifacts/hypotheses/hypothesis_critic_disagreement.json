@@ -1,0 +1,26 @@
+{
+  "id": "critic-disagreement-as-selection-signal",
+  "analyst": "example-depth-analyst",
+  "core_claim": "For open-ended research-agent tasks, structured disagreement among diverse critics is a better selection signal than a single scalar judge score.",
+  "challenged_premise": "One judge can approximate research quality well enough to guide open-ended proposal selection.",
+  "first_principles_basis": "Novel research lacks ground truth. Robustness is better approximated by independent attempts to find fatal flaws under different assumptions.",
+  "cross_domain_connections": [
+    "peer review as adversarial scrutiny",
+    "ensemble uncertainty in model selection",
+    "diffusion denoising as iterative removal of error modes"
+  ],
+  "measurable_prediction": "Ideas selected by disagreement-pattern routing will have fewer shared fatal flaws in a held-out critic pass than ideas selected by a single judge score.",
+  "experiment_design": {
+    "setup": "Generate 12 candidate research ideas from the same seed. Review each with three critic profiles: skeptical empiricist, rigorous theoretician, pragmatic engineer. Select top ideas using either single score or disagreement-pattern routing. Run a held-out critic panel on selected ideas.",
+    "success_criterion": "Disagreement-selected ideas produce fewer unanimous fatal-flaw findings and more evidence-grounded revision actions.",
+    "estimated_time": "<=2h",
+    "weakest_link": "Critic independence may be weaker than assumed if all critics share the same base model.",
+    "critic_diversity_plan": "Use different prompt priors, different scoring rubrics, and require each critic to cite a distinct failure mode or evidence gap."
+  },
+  "confidence": "medium",
+  "risk_factors": [
+    "critic prompts may create superficial diversity only",
+    "single judge may already internalize multiple criteria",
+    "held-out critic may share the same blind spots"
+  ]
+}

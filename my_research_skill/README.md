@@ -1,4 +1,4 @@
-# my_research_skill 
+﻿# my_research_skill 
 
 个人写paper / 做调研过程中沉淀下来的 Skill收录。
 
@@ -138,6 +138,23 @@ python skills/paper-layout-fixer/scripts/latex_log_report.py build/paper.log --f
 ### paper-figure-imagegen — 初代单论文版本
 
 最早写的版本，比 `paper-figure-studio` 简单，只针对一篇论文的固定风格。**已删掉硬编码的 API key 和 base URL**——现在凭证全部从 `OPENAI_API_KEY` / `OPENAI_BASE_URL` 或 `.env` 读取。保留它是因为它已经是单论文场景的最小可用形态。
+
+---
+
+## 示例
+
+完整示例放在 `example/` 目录，每个 skill 都有独立输入、调用命令和真实结果。图像类示例已经用 `gpt-image-2` 真实生成 PNG；凭证仍从环境变量或 `.env` 读取。
+
+| Skill | 示例内容 | 结果 |
+| --- | --- | --- |
+| `topic-mentor` | `example/topic-mentor/prompt.md` | `example/topic-mentor/result.md` |
+| `brainstorm-search` | `example/brainstorm-search/prompt.md` | `example/brainstorm-search/result.md` |
+| `diffusion-idea` | `example/diffusion-idea/prompt.md` | `example/diffusion-idea/result.md` |
+| `paper-figure-studio` | `example/paper-figure-studio/brief.md` + `command.md` | `example/paper-figure-studio/overview.png` |
+| `paper-table-polisher` | `example/paper-table-polisher/results.csv` + `command.md` | `example/paper-table-polisher/main_table.tex` |
+| `paper-layout-fixer` | `example/paper-layout-fixer/paper.tex` + `command.md` | `example/paper-layout-fixer/build/report.md` |
+| `paper-box-styler` | `example/paper-box-styler/sample.tex` + `command.md` | `example/paper-box-styler/build/sample.pdf` |
+| `paper-figure-imagegen` | `example/paper-figure-imagegen/prompt.md` + `command.md` | `example/paper-figure-imagegen/research_loop.png` |
 
 ---
 
