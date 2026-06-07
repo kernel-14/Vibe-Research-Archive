@@ -100,12 +100,14 @@
 | 仓库 | 创建时间 | Stars | 在做什么 |
 | --- | --- | ---: | --- |
 | [HKUSTDial/Supervisor-Skills](https://github.com/HKUSTDial/Supervisor-Skills) | 2026-04-19 | 1111 | 博导经验整理成 AI skills，覆盖 idea、论文结构、写作、图表、投稿前检查等。 |
+| [mikubaka88/CCFA-Skills](https://github.com/mikubaka88/CCFA-Skills) | 2026-06-04 | 132 | CCF-A 投稿向 skills 合集，覆盖 idea 评审/优化、论文写作、rebuttal、reviewer 等环节。 |
 | [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 2026-02-26 | 22519 | Claude Code 学术研究 skills，从 research 到 write、review、revise、finalize。 |
 | [HughYau/AcademicForge](https://github.com/HughYau/AcademicForge) | 2026-02-03 | 1292 | 一站式学术研究 skills 平台，偏 curated skill collection。 |
 | [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | 2025-11-03 | 8978 | 面向 Claude/Codex/Gemini 等 agent 的 AI research / engineering skills 库。 |
 | [TenureAI/PhD-Zero](https://github.com/TenureAI/PhD-Zero) | 2026-02-27 | 52 | PhD-level workflows + modular agent skills，偏 autoresearch 工作流操作层。 |
 | [wanshuiyin/Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | 2026-03-10 | 10808 | ARIS，Markdown-only skills，支持 idea discovery、experiment automation、cross-model review loops。 |
 | [Trae1ounG/paper-plot-skills](https://github.com/Trae1ounG/paper-plot-skills) | 2026-04-17 | 295 | 顶会论文图表复现和绘图 skills。 |
+| [Tardfyou/ccfa-skills](https://github.com/Tardfyou/ccfa-skills) | 2026-05-03 | 10 | 用于绘制 CCF-A 统计图的绘图 skills。 |
 | [MLNLP-World/Paper-Writing-Tips](https://github.com/MLNLP-World/Paper-Writing-Tips) | 2022-04-13 | 4475 | 论文投稿和写作常见问题整理。 |
 | [zhaoyang97/Paper-Notes](https://github.com/zhaoyang97/Paper-Notes) | 2026-03-18 | 395 | AI / LLM / NLP / CV 论文速读和笔记集合。 |
 

@@ -6,7 +6,7 @@
 
 分为**输入侧（idea / topic 探索）** 与 **输出侧（论文产出）**：
 
-- 输入侧：`topic-mentor` → `brainstorm-search` → `diffusion-idea`，从入门 → 全景调研 → 假设验证。
+- 输入侧：`topic-mentor` / `paper-mentor` → `idea-extension` → `brainstorm-search` → `diffusion-idea`，从入门 → idea 审核打磨 → 全景调研 → 假设验证。其中 `topic-mentor` 从领域脉络入门，`paper-mentor` 从单篇论文锚定入门，`idea-extension` 把粗 idea 审核 + 打磨 + 延展。
 - 输出侧：`RA-Skill/` 下的四件套（figure / table / box / layout）+ 历史版本 `paper-figure-imagegen`。
 
 设计原则：
@@ -19,7 +19,9 @@
 
 ```
 my_research_skill/
-  topic-mentor/              # 第一性原理 + 费曼学习法导师
+  topic-mentor/              # 第一性原理 + 费曼学习法导师（领域脉络入门）
+  paper-mentor/              # 单篇论文锚定精读 + 第一性原理延展 + idea 孵化
+  idea-extension/            # idea 审核 + 打磨 + 延展（review / optimize / extend）
   brainstorm-search/         # 多角度调研 → 文献全景
   diffusion-idea/            # idea 演化 + 多 critic 验证
   RA-Skill/
@@ -47,6 +49,28 @@ my_research_skill/
 **5 阶段工作流**：脉络搭建 → 第一性原理拆解 → 费曼诊断 → 前沿延展 → idea 孵化。每阶段有出口问题，不能跳。
 
 **输出**：`<topic>/roadmap.md`，标注已掌握节点 / 仍模糊节点 / 新 idea / 推荐阅读。
+
+### paper-mentor — 以一篇论文为锚点入门
+
+**用途**：手里有一篇具体论文，想真正吃透它并以它为支点理解整个方向。是 `topic-mentor` 的"单篇锚定"变体：topic-mentor 从领域脉络出发，paper-mentor 从一篇 paper 出发，向外辐射到 motivation、related work 发展、方法推导、实验细节，再做第一性原理延展。**不替你读完论文**，而是用 Socratic 提问 + 手推公式逼出盲点。
+
+**触发**：`/paper-mentor <论文>`、"带我精读这篇 paper"、"用这篇论文入门 X"、直接丢来本地路径 / arXiv id / URL / 标题。
+
+**论文读入策略**（第一个成功即停）：本地文件直接 Read → 联网直读（WebFetch，arXiv 优先）→ 直读失败就 `curl` 下载到当前目录再读 → 只有标题就先 WebSearch 定位真实链接。**永远不凭记忆编 arXiv 编号。**
+
+**6 阶段工作流**：定位读入 → Motivation 拆解 → Related Work 脉络 → 方法推导（第一性原理 + 手推公式）→ 实验细节（claim ↔ 证据对照）→ 延展 + idea 孵化 → 基于用户 idea 进一步联网搜索接地。Stage 5 的 idea 评审交给独立的 `idea-extension` skill。
+
+**输出**：单篇笔记 `<paper-short-name>/<paper-short-name>.md`（电梯摘要 / motivation / 脉络 / 推导 / 实验 / 延展 idea / 搜索结论 / 掌握度），全程由 skill 自己维护。
+
+### idea-extension — idea 审核 + 打磨 + 延展
+
+**用途**：手里有一个（或几个）粗糙 idea，想被严格地评一评、磨一磨、再延展成站得住的 problem-method-experiment 方案。三段式：**review**（多视角 critic 打分 + 致命门）→ **optimize**（磨问题、磨机制、定贡献、设计最小证据包）→ **extend**（第一性原理松绑假设 / 迁移机制 / 推到极限）。可单独用，也被 `paper-mentor` Stage 5 调起，给从论文延展出的 idea 做接地评审。
+
+**触发**：`/idea-extension`、"评一下这个 idea"、"这个 idea 能不能做"、"帮我打磨/延展这个想法"、"review/optimize/extend this idea"。
+
+**核心约束**：不编造文献/结果/baseline/reviewer 反应；**绝不单评审**（≥4 个独立视角）；"低新颖"与"未搜索新颖"分开报，未联网前新颖性一律标 `needs-literature-search`；先优化 idea 再谈写作。references 拆成 `idea-intake` / `review-rubric` / `problem-method-blueprint` / `experiment-design` 四个文件按需加载。
+
+**输出**：单 idea 的 idea card + 多视角审核 + 10 维打分 + 致命风险 + fixability + 延展变体 + 推荐；多 idea 时按"扣除致命风险后"的潜力排序。
 
 ### brainstorm-search — 全景式调研，不做验证
 
@@ -166,6 +190,8 @@ python skills/paper-layout-fixer/scripts/latex_log_report.py build/paper.log --f
 
 ```text
 /topic-mentor 我想搞懂 GRPO
+/paper-mentor https://arxiv.org/abs/2305.18290 带我精读 DPO 这篇
+/idea-extension 评一下这个 idea：用对比学习改进长文档检索
 /brainstorm-search 用 diffusion 的视角重新看 RAG
 用 paper-figure-studio 帮我画一张方法总览图，风格用 colorful-method
 用 paper-table-polisher 把 results.csv 转成 ablation 表，best 加粗
