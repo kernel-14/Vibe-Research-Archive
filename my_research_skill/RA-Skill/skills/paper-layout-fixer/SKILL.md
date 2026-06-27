@@ -32,8 +32,32 @@ A diagnose-first skill. NEVER guess at layout fixes — compile, read the log, l
    - Width / spacing → `references/space-fixes.md`
    - Labels / refs → in-doc fixes only
    - Package conflict → propose minimal `\usepackage` reorder; do not silently disable hyperref/cleveref/etc.
-5. **Apply minimal local edits.** Touch only the smallest scope that addresses the warning.
-6. **Re-compile**, diff before/after, report the residual warnings.
+5. **Inspect rendered pages.** For visual complaints ("too much blank space",
+   "figure/table too large", "text overlaps"), compile and render the affected
+   pages to images. The log alone will not catch oversized floats, sparse
+   pages, or labels that collide inside a plotted figure.
+6. **Apply minimal local edits.** Touch only the smallest scope that addresses
+   the warning.
+7. **Re-compile**, diff before/after, report the residual warnings.
+
+## Visual Layout Heuristics
+
+- Treat `figure*` and `table*` as scarce. Use them for central results or
+  genuinely full-width diagrams; convert illustrative examples and small
+  motivation charts to single-column floats when they create a float-only page
+  or leave the previous page half empty.
+- When a page has large blank areas, inspect the next page first. The cause is
+  often a queued wide float, not missing prose on the blank page.
+- Do not stack multiple wide floats in sequence unless the page is intended to
+  be a dense results plate. Move one float earlier, convert one to single
+  column, shrink a low-information figure, or move supporting visuals to the
+  appendix.
+- For data figures, prefer small multiples with short axis labels and numeric
+  annotations. Put explanatory prose in the caption instead of large titles or
+  full sentences inside the plot.
+- For dataset overview tables, keep table cells phrase-like. Put total dataset
+  size and partition definitions in the caption or surrounding text instead of
+  using a large "purpose" paragraph column.
 
 ## Hard Boundaries
 
@@ -48,6 +72,8 @@ This skill helps reliably with:
 
 - Overfull / underfull `\hbox`
 - Float positioning (`figure`, `figure*`, `table`, `table*`) including two-column edge cases
+- Visual page-density problems caused by oversized figures, long captions, or
+  float queues
 - Caption width and `\caption` line breaking
 - Algorithm / listing block spacing
 - Undefined references and duplicate labels

@@ -41,6 +41,17 @@ Generates investable, no-vertical-line, booktabs-grade LaTeX tables for ANY pape
    4. Step the font down to `\small` or `\footnotesize`.
    5. Last resort: `\resizebox{\linewidth}{!}{...}`. Document the reason.
 
+7. **Page-density fixes for small overview tables**:
+   - Keep cells as short phrases; do not put paragraph-length purpose
+     descriptions inside a table cell.
+   - Move dataset totals, construction notes, and partition definitions to the
+     caption or surrounding text.
+   - For three-to-five-row dataset overview tables, prefer compact `lll`/`lcl`
+     columns with local `\scriptsize`, reduced `\arraystretch`, and reduced
+     `\tabcolsep` over fixed-width `p{}` paragraph columns.
+   - Do not let a small table force a float-only page or a half-empty column;
+     compact the table before tuning global float spacing.
+
 ## Hard Rules
 
 - No `\hline`. Use `\toprule \midrule \bottomrule`.
@@ -48,6 +59,8 @@ Generates investable, no-vertical-line, booktabs-grade LaTeX tables for ANY pape
 - Number columns use `S` columns from `siunitx` for alignment.
 - Highlighting must encode meaning: best, second, ours, statistically significant. Decoration is forbidden.
 - Captions go ABOVE tables. Footnotes use `\tabnote{}` so they stay table-width.
+- Small dataset-stat tables should not include a "Total" row if the same total
+  can be stated once in the caption.
 
 ## Asset Index
 

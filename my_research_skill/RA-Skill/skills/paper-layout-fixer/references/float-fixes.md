@@ -13,6 +13,32 @@
 - Mixing them on the same page is fragile. Prefer one per page when possible.
 - `\caption` width follows the float environment; if caption text wraps oddly, check that you are inside the right env.
 
+## Symptom: previous page has large blank space and the next page is mostly floats
+
+This usually means wide floats are queued. Fix the queue before rewriting prose:
+
+1. Identify the first `figure*` or `table*` after the blank area.
+2. If it is an illustrative example, thumbnail, or low-information motivation
+   chart, convert it to a single-column `figure`/`table` and set
+   `\includegraphics[width=\linewidth]{...}`.
+3. Keep the main quantitative table or central method figure wide; shrink or
+   move supporting visuals instead.
+4. Avoid placing a full-width example figure immediately before a full-width
+   main-result table. Put the example in one column, or move it to appendix if
+   it is not essential for the main argument.
+5. Re-render the affected pages. The fix is successful only if the previous page
+   gains body text and the next page is no longer a sparse float page.
+
+## Symptom: figure text overlaps or dominates the panel
+
+- Remove nonessential in-plot prose first. Captions should carry explanation.
+- Prefer short panel headers such as "Prior", "Audit", "Waste" over full
+  sentence titles.
+- Put long annotations such as resend ratios, caveats, and mechanism
+  descriptions in the caption or an appendix table.
+- If y-axis labels collide across panels, remove low-value labels or increase
+  panel spacing; do not simply scale the entire figure down.
+
 ## Symptom: caption appears below figure but should be above (table) or vice-versa
 
 - Order in source: `\caption{}` BEFORE `\includegraphics` for above-figure captions when journal mandates it.
