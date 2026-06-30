@@ -8,6 +8,7 @@
 
 - 输入侧：`topic-mentor` / `paper-mentor` → `idea-extension` → `brainstorm-search` → `diffusion-idea`，从入门 → idea 审核打磨 → 全景调研 → 假设验证。其中 `topic-mentor` 从领域脉络入门，`paper-mentor` 从单篇论文锚定入门，`idea-extension` 把粗 idea 审核 + 打磨 + 延展。
 - 输出侧：`RA-Skill/` 下的四件套（figure / table / box / layout）+ 历史版本 `paper-figure-imagegen`。
+- 表格视觉侧：`table-beautifier` 沉淀了一组可直接复制的 LaTeX 表格美化模板和 PDF gallery，适合已有 TeX 表格的二次润色。
 
 设计原则：
 
@@ -24,6 +25,7 @@ my_research_skill/
   idea-extension/            # idea 审核 + 打磨 + 延展（review / optimize / extend）
   brainstorm-search/         # 多角度调研 → 文献全景
   diffusion-idea/            # idea 演化 + 多 critic 验证
+  table-beautifier/          # LaTeX 表格视觉美化模板 + PDF gallery
   RA-Skill/
     skills/
       paper-figure-studio/   # 论文图：可换风格预设
@@ -140,6 +142,33 @@ python skills/paper-table-polisher/scripts/table_from_csv.py results.csv \
 
 **硬规则**：不用 `\hline`、不用竖线、宽度问题先改列名再考虑 `\resizebox`。
 
+### table-beautifier — LaTeX 表格视觉美化
+
+**用途**：当你已经有一段 LaTeX `tabular`，想把它改成更像顶会论文里的精致表格。它不负责从 CSV 自动生成数据表，而是提供可复用的 `table-style.sty`、模板和 gallery。
+
+**支持样式**：
+- rank cells：best / second / third 的柔和色块
+- pastel groups：按方法族或实验设置分组的淡色 band
+- ours + delta：成对 baseline / ours 行和绿色提升下标
+- heatmap：低 / 中 / 高强度得分色阶
+- significance：显著性星号、n.s. 和稳健性 delta
+- case matrix：定性案例的 check / cross / partial / rank badge
+- compact wide：宽表压缩、分组表头、leaderboard 风格
+- wrap summary：可放在正文旁边的小型 summary table
+
+**资源**：
+- `table-beautifier/assets/latex/table-style.sty`
+- `table-beautifier/assets/templates/*.tex`
+- [`table-beautifier/assets/gallery/table-gallery.pdf`](table-beautifier/assets/gallery/table-gallery.pdf)
+
+**最小用法**：
+```latex
+\input{table-style.sty}
+\tbbest{74.9}
+\tbsecond{72.1}
+\tboursrow Ours & \tbbest{85.6}\tbpos{1.6} \\
+```
+
 ### paper-layout-fixer — LaTeX 排版诊断
 
 **用途**：解决"AI 总排不好版"的痛点。**先编译再说话**：解析 .log，分类 overfull / underfull / float / undefined ref / package conflict，给出局部修复建议。
@@ -174,6 +203,7 @@ python skills/paper-layout-fixer/scripts/latex_log_report.py build/paper.log --f
 | `topic-mentor` | `example/topic-mentor/prompt.md` | `example/topic-mentor/result.md` |
 | `brainstorm-search` | `example/brainstorm-search/prompt.md` | `example/brainstorm-search/result.md` |
 | `diffusion-idea` | `example/diffusion-idea/prompt.md` | `example/diffusion-idea/result.md` |
+| `table-beautifier` | `table-beautifier/assets/gallery/table-gallery.tex` | `table-beautifier/assets/gallery/table-gallery.pdf` |
 | `paper-figure-studio` | `example/paper-figure-studio/brief.md` + `command.md` | `example/paper-figure-studio/overview.png` |
 | `paper-table-polisher` | `example/paper-table-polisher/results.csv` + `command.md` | `example/paper-table-polisher/main_table.tex` |
 | `paper-layout-fixer` | `example/paper-layout-fixer/paper.tex` + `command.md` | `example/paper-layout-fixer/build/report.md` |
@@ -194,6 +224,7 @@ python skills/paper-layout-fixer/scripts/latex_log_report.py build/paper.log --f
 /idea-extension 评一下这个 idea：用对比学习改进长文档检索
 /brainstorm-search 用 diffusion 的视角重新看 RAG
 用 paper-figure-studio 帮我画一张方法总览图，风格用 colorful-method
+用 table-beautifier 把这段 LaTeX 表格改成 rank cells + ours delta 风格
 用 paper-table-polisher 把 results.csv 转成 ablation 表，best 加粗
 用 paper-layout-fixer 看一下 paper.tex 第 7 页为什么图跑飞了
 ```

@@ -111,3 +111,9 @@
 | [MLNLP-World/Paper-Writing-Tips](https://github.com/MLNLP-World/Paper-Writing-Tips) | 2022-04-13 | 4475 | 论文投稿和写作常见问题整理。 |
 | [zhaoyang97/Paper-Notes](https://github.com/zhaoyang97/Paper-Notes) | 2026-03-18 | 395 | AI / LLM / NLP / CV 论文速读和笔记集合。 |
 
+## 4. 本仓库自定义 Skill
+
+| Skill | 位置 | 在做什么 |
+| --- | --- | --- |
+| `table-beautifier` | [`my_research_skill/table-beautifier`](my_research_skill/table-beautifier/SKILL.md) | LaTeX 表格视觉美化模板库，提供 `table-style.sty`、rank cells、pastel groups、ours delta、heatmap、significance、case matrix、compact wide、wrap summary 等样式。PDF 展示见 [`table-gallery.pdf`](my_research_skill/table-beautifier/assets/gallery/table-gallery.pdf)。 |
+

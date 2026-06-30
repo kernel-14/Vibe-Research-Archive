@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{Quantitative comparison.} Best, second-best, and third-best values are highlighted with pastel cell backgrounds.}
+\label{tab:rank-cells}
+\\tbcompact
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\multirow{2}{*}{Method} & \multicolumn{3}{c}{Dataset A} & \multicolumn{3}{c}{Dataset B} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+& Acc.$\uparrow$ & F1$\uparrow$ & Err.$\downarrow$ & Acc.$\uparrow$ & F1$\uparrow$ & Err.$\downarrow$ \\
+\midrule
+Baseline-A & 70.4 & \tbThird{68.1} & 9.8 & 65.2 & 63.0 & 10.6 \\
+Baseline-B & \tbSecond{72.1} & 67.5 & \tbThird{8.9} & \tbThird{68.7} & \tbSecond{66.5} & 9.4 \\
+Strong Model & \tbThird{71.6} & \tbSecond{69.4} & \tbSecond{8.3} & \tbSecond{70.3} & \tbThird{65.8} & \tbSecond{8.6} \\
+\tbOursrow Ours & \tbBest{74.9} & \tbBest{72.8} & \tbBest{7.1} & \tbBest{73.4} & \tbBest{69.7} & \tbBest{7.8} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+

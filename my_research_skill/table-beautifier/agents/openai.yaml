@@ -1,0 +1,5 @@
+interface:
+  display_name: "Table Beautifier"
+  short_description: "Polished LaTeX table styles for AI papers"
+  default_prompt: "Use $table-beautifier to restyle this LaTeX table into a polished paper-ready table."
+

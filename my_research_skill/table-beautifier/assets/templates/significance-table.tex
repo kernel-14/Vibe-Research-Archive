@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{\textbf{Robustness comparison.} Stars indicate significant gains; neutral marks avoid overclaiming.}
+\label{tab:significance}
+\tbcompact
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Method & Clean & Corrupt & Long-tail & Avg. \\
+\midrule
+Baseline & 82.1 & 61.4 & 44.9 & 62.8 \\
+Strong Baseline & 84.0\tbns & 63.8\tbsig & 48.2\tbsig & 65.3 \\
+\tboursrow Ours & \tbbest{85.6}\tbpos{1.6} & \tbbest{67.9}\tbpos{4.1} & \tbbest{52.4}\tbpos{4.2} & \tbbest{68.6}\tbpos{3.3} \\
+\bottomrule
+\end{tabular}
+\end{table}

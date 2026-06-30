@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{Grouped comparison.} Pastel bands mark evaluation settings; lightly tinted method cells mark method families.}
+\label{tab:pastel-group}
+\\tbcompact
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Model & R@1 & R@5 & R@10 & H@1 & H@5 & H@10 \\
+\midrule
+\\tbsection{7}{Zero-Shot}
+\tbGreenCell{CLIP} & .019 & .061 & .091 & .092 & .201 & .278 \\
+\tbGreenCell{SigLIP} & .062 & .228 & .322 & .311 & .536 & .639 \\
+\midrule
+\\tbsection{7}{Same-Dataset Fine-Tuning}
+\tbPinkCell{CLIP-ft} & .029 & .095 & .142 & .140 & .299 & .393 \\
+\tbPinkCell{SigLIP-ft} & \tbSecond{.083} & \tbBest{.307} & \tbBest{.421} & \tbSecond{.417} & \tbSecond{.659} & \tbSecond{.753} \\
+\tbBlueCell{\textbf{Ours}} & \tbBest{.089} & \tbSecond{.303} & \tbSecond{.409} & \tbBest{.437} & \tbBest{.665} & \tbBest{.756} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+

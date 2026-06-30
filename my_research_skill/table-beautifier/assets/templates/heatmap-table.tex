@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\caption{\textbf{Ablation heatmap.} Blue intensity encodes relative strength across modules.}
+\label{tab:heatmap}
+\tbcompact
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Variant & Text & Vision & Tool & Overall \\
+\midrule
+Base & \tbheatlow{41.2} & \tbheatlow{38.6} & \tbheatlow{33.9} & 37.9 \\
++ Retrieval & \tbheatmid{48.4} & \tbheatlow{40.1} & \tbheatmid{44.5} & 44.3 \\
++ Verifier & \tbheatmid{50.7} & \tbheatmid{46.8} & \tbheatmid{47.9} & 48.5 \\
+\tboursrow Full & \tbheathigh{55.9} & \tbheathigh{52.1} & \tbheathigh{58.4} & \tbbest{55.5} \\
+\bottomrule
+\end{tabular}
+\end{table}

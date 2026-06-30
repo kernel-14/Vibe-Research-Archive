@@ -1,0 +1,185 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.65in]{geometry}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{float}
+\input{../latex/table-style.sty}
+
+\captionsetup{font=small,labelfont=bf}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Table Beautifier Gallery}}\\
+{\small Reusable LaTeX table styles for AI-paper quantitative and qualitative tables.}
+\end{center}
+
+\section*{1. Rank Cells}
+\begin{table}[H]
+\centering
+\caption{\textbf{Quantitative comparison.} Best, second-best, and third-best values are highlighted with pastel cell backgrounds.}
+\tbcompact
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\multirow{2}{*}{Method} & \multicolumn{3}{c}{Dataset A} & \multicolumn{3}{c}{Dataset B} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+& Acc.$\uparrow$ & F1$\uparrow$ & Err.$\downarrow$ & Acc.$\uparrow$ & F1$\uparrow$ & Err.$\downarrow$ \\
+\midrule
+Baseline-A & 70.4 & \tbthird{68.1} & 9.8 & 65.2 & 63.0 & 10.6 \\
+Baseline-B & \tbsecond{72.1} & 67.5 & \tbthird{8.9} & \tbthird{68.7} & \tbsecond{66.5} & 9.4 \\
+Strong Model & \tbthird{71.6} & \tbsecond{69.4} & \tbsecond{8.3} & \tbsecond{70.3} & \tbthird{65.8} & \tbsecond{8.6} \\
+\tboursrow Ours & \tbbest{74.9} & \tbbest{72.8} & \tbbest{7.1} & \tbbest{73.4} & \tbbest{69.7} & \tbbest{7.8} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{2. Pastel Group Bands}
+\begin{table}[H]
+\centering
+\caption{\textbf{Grouped comparison.} Pastel bands mark settings; tinted method cells mark families.}
+\tbcompact
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Model & R@1 & R@5 & R@10 & H@1 & H@5 & H@10 \\
+\midrule
+\tbsection{7}{Zero-Shot}
+\tbfamilyA{CLIP} & .019 & .061 & .091 & .092 & .201 & .278 \\
+\tbfamilyA{SigLIP} & .062 & .228 & .322 & .311 & .536 & .639 \\
+\midrule
+\tbsection{7}{Same-Dataset Fine-Tuning}
+\tbfamilyC{CLIP-ft} & .029 & .095 & .142 & .140 & .299 & .393 \\
+\tbfamilyC{SigLIP-ft} & \tbsecond{.083} & \tbbest{.307} & \tbbest{.421} & \tbsecond{.417} & \tbsecond{.659} & \tbsecond{.753} \\
+\tbfamilyB{\textbf{Ours}} & \tbbest{.089} & \tbsecond{.303} & \tbsecond{.409} & \tbbest{.437} & \tbbest{.665} & \tbbest{.756} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{3. Ours Rows With Deltas}
+\begin{table}[H]
+\centering
+\caption{\textbf{Effect of the proposed module.} Subscripts show absolute gains over the paired baseline.}
+\tbcompact
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Model & Size & Obj.$\uparrow$ & Attr.$\uparrow$ & Rel.$\uparrow$ \\
+\midrule
+\tbbaserow Random Guess & -- & 4.0 & 4.0 & 4.0 \\
+Model-A & 7B & 25.3 & 13.0 & 7.6 \\
+\tboursrow \quad + Ours & 7B & \textbf{48.4}\tbpos{23.1} & \textbf{38.4}\tbpos{25.4} & \textbf{24.2}\tbpos{16.6} \\
+Model-B & 13B & 62.2 & 39.6 & 19.2 \\
+\tboursrow \quad + Ours & 13B & \textbf{67.5}\tbpos{5.3} & \textbf{44.0}\tbpos{4.4} & \textbf{22.1}\tbpos{2.9} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{4. Compact Wide Table}
+\begin{table}[H]
+\centering
+\caption{\textbf{Leaderboard-style wide table.} Use compact spacing, grouped headers, and a semantic highlighted row.}
+\tbwidecompact
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lcc cccc cccc c@{}}
+\toprule
+Method & Backbone & Stage & \multicolumn{4}{c}{Safety} & \multicolumn{4}{c}{Planning} & Score$\uparrow$ \\
+\cmidrule(lr){4-7}\cmidrule(lr){8-11}
+& & & NC & DAC & DDC & TLC & EP & TTC & LK & HC & \\
+\midrule
+Rule Planner & -- & S1/S2 & 94.4 & 98.8 & 100.0 & 99.5 & 100.0 & 93.5 & 99.3 & 87.7 & 51.3 \\
+\tbsection{12}{Regression-based Planner}
+TransFuser & R34 & S1/S2 & 97.3 & 80.2 & 97.8 & 99.3 & 83.4 & 96.2 & 92.9 & 97.8 & 24.4 \\
+\tboursrow Ours & R50 & S1/S2 & \tbbest{98.1} & \tbbest{86.5} & \tbbest{99.4} & 99.1 & \tbbest{93.0} & 94.7 & \tbbest{93.6} & 95.1 & \tbbest{42.9} \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\section*{5. Boolean Flags And Warnings}
+\begin{table}[H]
+\centering
+\caption{\textbf{Efficiency and property flags.} Checkmarks encode features; red numbers encode violations.}
+\tbcompact
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Method & Training-free & Inversion-free & Steps$\downarrow$ & Runtime$\downarrow$ & VRAM$\downarrow$ \\
+\midrule
+Method-A & \tbcheck & \tbxmark & 50 & 55.2 & \tbthird{12272} \\
+Method-B & \tbcheck & \tbcheck & \tbsecond{8} & 12.4 & \tbsecond{9262} \\
+\tboursrow Ours & \tbcheck & \tbcheck & \tbbest{4} & \tbbest{7.8} & \tbbest{8120} \\
+Unsafe Variant & \tbxmark & \tbcheck & \textcolor{tbLoss}{120} & \textcolor{tbLoss}{88.0} & 11020 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{6. Heatmap Intensity}
+\begin{table}[H]
+\centering
+\caption{\textbf{Ablation heatmap.} Blue intensity encodes strength without adding extra marks to every cell.}
+\tbcompact
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Variant & Text & Vision & Tool & Overall \\
+\midrule
+Base & \tbheatlow{41.2} & \tbheatlow{38.6} & \tbheatlow{33.9} & 37.9 \\
++ Retrieval & \tbheatmid{48.4} & \tbheatlow{40.1} & \tbheatmid{44.5} & 44.3 \\
++ Verifier & \tbheatmid{50.7} & \tbheatmid{46.8} & \tbheatmid{47.9} & 48.5 \\
+\tboursrow Full & \tbheathigh{55.9} & \tbheathigh{52.1} & \tbheathigh{58.4} & \tbbest{55.5} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{7. Significance And Robustness}
+\begin{table}[H]
+\centering
+\caption{\textbf{Robustness comparison.} Stars indicate statistically significant gains; neutral deltas avoid overclaiming.}
+\tbcompact
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Method & Clean & Corrupt & Long-tail & Avg. \\
+\midrule
+Baseline & 82.1 & 61.4 & 44.9 & 62.8 \\
+Strong Baseline & 84.0\tbns & 63.8\tbsig & 48.2\tbsig & 65.3 \\
+\tboursrow Ours & \tbbest{85.6}\tbpos{1.6} & \tbbest{67.9}\tbpos{4.1} & \tbbest{52.4}\tbpos{4.2} & \tbbest{68.6}\tbpos{3.3} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{8. Case Matrix And Rank Badges}
+\begin{table}[H]
+\centering
+\caption{\textbf{Qualitative case matrix.} Badges and partial marks make case-study tables scannable.}
+\tbcompact
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Method & Faithful & Complete & Grounded & Rank \\
+\midrule
+Baseline-A & \tbcheck & \tbxmark & \tbpartial & \tbrankbadge{tbNeutral}{3} \\
+Baseline-B & \tbpartial & \tbcheck & \tbpartial & \tbrankbadge{tbSecond}{2} \\
+\tboursrow Ours & \tbcheck & \tbcheck & \tbcheck & \tbrankbadge{tbGain}{1} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{9. Wrap Summary}
+\begin{wraptable}{r}{0.50\textwidth}
+\centering
+\vspace{-0.4cm}
+\caption{\textbf{Compact summary.} Side table style for a small benchmark slice.}
+\tbwidecompact
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+& \multicolumn{4}{c}{\cellcolor{tbThird}\textbf{Aspect: Downstream Task}} \\
+\cmidrule(lr){2-5}
+Model & Seg.$\uparrow$ & Det.$\uparrow$ & Trk.$\uparrow$ & Pred.$\uparrow$ \\
+\midrule
+Model-A & 18.3 & 22.4 & 7.9 & 23.1 \\
+Model-B & \tbsecond{33.6} & \tbsecond{30.9} & \tbsecond{13.3} & 24.8 \\
+\tboursrow Ours & \tbbest{36.9} & \tbbest{32.2} & \tbbest{15.8} & \tbbest{26.8} \\
+\bottomrule
+\end{tabular}
+\vspace{-0.4cm}
+\end{wraptable}
+This pattern is useful when a compact table must sit beside explanatory text or a figure. Keep the table narrow, reduce the number of metrics, and reserve color for rank or semantic grouping only.
+
+\end{document}
+
