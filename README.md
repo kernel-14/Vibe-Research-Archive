@@ -62,7 +62,6 @@
 | [aiming-lab/AutoResearchClaw](https://github.com/aiming-lab/AutoResearchClaw) | 2026-03-15 | 12771 | 从 idea 到 paper 的全自动、自进化 research workflow，基于 OpenClaw 生态。 |
 | [OpenRaiser/NanoResearch](https://github.com/OpenRaiser/NanoResearch) | 2026-03-17 | 1339 | Autonomous AI Research Assistant，偏轻量科研 agent/skills 组合。 |
 | [tsingyuai/scientify](https://github.com/tsingyuai/scientify) | 2026-02-04 | 465 | OpenClaw 上的 AI-powered research workflow automation。 |
-| [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 2025-05-07 | 69737 | 长周期 SuperAgent harness，提供 sandbox、memory、subagent、skills、message gateway。 |
 
 ### 2.3 Benchmark / evaluator
 
@@ -116,4 +115,20 @@
 | Skill | 位置 | 在做什么 |
 | --- | --- | --- |
 | `table-beautifier` | [`my_research_skill/table-beautifier`](my_research_skill/table-beautifier/SKILL.md) | LaTeX 表格视觉美化模板库，提供 `table-style.sty`、rank cells、pastel groups、ours delta、heatmap、significance、case matrix、compact wide、wrap summary 等样式。PDF 展示见 [`table-gallery.pdf`](my_research_skill/table-beautifier/assets/gallery/table-gallery.pdf)。 |
+| `intro-story-rewriter` | [`my_research_skill/intro-story-rewriter`](my_research_skill/intro-story-rewriter/SKILL.md) | 论文 Introduction 逻辑重写：把任务动机、证据来源、问题缺口、方法模块、指标、benchmark 和主结果串成一条清晰 story line。 |
+
+## 5. 写作原则来源
+
+`intro-story-rewriter` 主要沉淀了这次改 paper intro 时验证过的写作原则：
+
+- [MIT Communication Lab: Journal Article Introduction](https://mitcommlab.mit.edu/eecs/commkit/journal-article-introduction/)：Introduction 要先建立 problem context，再给出 gap 和贡献。
+- [Jennifer Widom: Tips for Writing Technical Papers](https://cs.stanford.edu/people/widom/paper-writing.html)：开头要尽快说明问题、动机和本文具体贡献，避免空泛背景。
+- [Simon Peyton Jones: How to Write a Great Research Paper](https://simon.peytonjones.org/great-research-paper/)：论文 intro 要明确提出 claim，并让后文证据服务于这个 claim。
+
+在实际使用中，我把它整理成一个更机械的检查链：
+
+```text
+任务需求 -> 现有方法有效但仍有成本/失败 -> 证据 -> 缺失的问题接口或度量
+       -> 方法模块 -> 指标与 benchmark -> 主结果
+```
 

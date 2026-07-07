@@ -1,0 +1,4 @@
+interface:
+  display_name: "Intro Story Rewriter"
+  short_description: "Rewrite paper intro storylines."
+  default_prompt: "Use intro-story-rewriter to revise this paper introduction around the actual motivation, evidence, method, metrics, benchmark, and contributions."
