@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rebuttal Strategist"
+  short_description: "Plan evidence-grounded, venue-aware paper rebuttals."
+  default_prompt: "Use $rebuttal-strategist to analyze reviewer intent and draft concise rebuttal responses."
