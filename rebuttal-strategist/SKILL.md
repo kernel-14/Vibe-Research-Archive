@@ -1,120 +1,151 @@
 ---
 name: rebuttal-strategist
-description: Plan, investigate, and draft concise evidence-grounded academic rebuttals for paper reviews. Use when the user asks to respond to reviewers, write a rebuttal/author response, analyze reviewer intent, decide what experiments or code/results to mine, coordinate agent-team investigation, adapt responses to a venue format, or revise rebuttal text to be polite, direct, non-defensive, and claim-safe.
+description: Plan, investigate, and draft evidence-grounded academic rebuttals for paper reviews. Use when the user asks to respond to reviewers, write a rebuttal or author response, itemize reviewer comments verbatim, infer reviewer intent, decide what paper/code/results evidence to mine, plan or run rebuttal analyses, coordinate agent-team investigation, adapt responses to a venue format, or revise text to be polite, direct, AC-friendly, non-defensive, and claim-safe.
 ---
 
 # Rebuttal Strategist
 
 ## Overview
 
-Use this skill to turn reviews into a clear rebuttal strategy, evidence plan, and venue-ready author response. The default posture is calm, grateful, precise, and non-defensive: understand the reviewer first, fix the claim/evidence chain, then write only the response that matters.
+Use this skill to turn reviews into a clear issue ledger, evidence plan, and venue-ready author response. The default posture is calm, grateful, precise, and non-defensive: understand the reviewer sentence by sentence, answer the direct question first, support the answer with evidence, and make the Area Chair able to judge the response without rereading the paper.
+
+Audience model:
+
+- Reviewers have read the paper to varying degrees, may have forgotten details, and may have misunderstood some design choices.
+- The AC is likely less familiar with the paper. Assume the AC may read only the reviews and the rebuttal.
+- A neutral third party should be able to tell whether each concern was addressed from the rebuttal alone.
 
 ## Required Startup
 
 Read these references before substantial work:
 
 - `references/user-profile.md` for the user's preferred rebuttal workflow and tone.
-- `references/rebuttal-workflow.md` for the staged process.
+- `references/rebuttal-workflow.md` for the staged process and issue-ledger schema.
 - `references/evidence-and-tone.md` before writing or revising response text.
-- `references/venue-patterns.md` when the venue, word limit, or response format matters.
+- `references/venue-patterns.md` when the venue, word limit, reviewer threading, or response format matters.
 - `references/source-notes.md` only when the user asks why this workflow is designed this way or wants external writing guidance.
+
+For any nontrivial rebuttal, do not draft immediately. First create a reviewer issue ledger that quotes each material concern or question as faithfully as space allows, then analyze intent, evidence, and stance.
 
 ## Workflow
 
-### 1. Understand The Review
+### 1. Build The Verbatim Issue Ledger
 
-For each reviewer, extract:
+For each reviewer, copy the material comments, weaknesses, and questions into an itemized table before answering them. Preserve the original meaning and, when practical, the original wording. Then read each item sentence by sentence.
 
-- the reviewer's positive signals;
-- the real decision risk behind each weakness;
-- what the reviewer likely wants clarified, corrected, or added;
-- whether the issue is a misunderstanding, missing evidence, underspecified method, weak experiment, overclaim, or scope concern.
+Minimum columns:
 
-Do not draft yet. Produce a short intent diagnosis first.
+- reviewer and item id;
+- original reviewer text or concise exact quote;
+- surface question or weakness;
+- hidden intent and decision risk;
+- direct answer needed;
+- evidence class: `paper-evidence`, `artifact-evidence`, `new-analysis`, `new-experiment`, `writing-fix`;
+- response stance;
+- camera-ready change.
 
-### 2. Set Goal And Subgoals
+Do not skip positive comments. Capture strengths first so the rebuttal can start from accepted contributions.
 
-When the task is more than a quick polish, create a goal if requested or clearly useful. Convert reviewer concerns into subgoals:
+### 2. Diagnose Reviewer Intent
 
-- claim to defend or calibrate;
-- evidence to cite from the paper;
-- artifacts, code, logs, or experiments to inspect;
-- new experiments needed, if any;
+For each item, determine what the reviewer likely needs:
+
+- clarification of an already-present detail;
+- correction of a misunderstanding or factual error;
+- stronger evidence for a benchmark, annotation, judge, or experiment claim;
+- code, artifact, or case-study evidence;
+- a new statistic over existing results;
+- a limited new experiment;
+- claim calibration or a clearer limitation.
+
+Respond to the intent, not only to the literal phrasing. If a reviewer asks "Why not X?", decide whether the real concern is coverage, validity, fairness, reproducibility, novelty, or scope.
+
+### 3. Set Goal And Subgoals
+
+When the task is more than a quick polish, create a formal goal only if the user explicitly requests it. Otherwise, maintain local reviewer-facing subgoals:
+
+- claim to defend, clarify, or calibrate;
+- paper evidence to cite;
+- artifacts, code, logs, generated repositories, or experiments to inspect;
+- new analysis or experiment needed, if any;
 - response paragraph to write;
-- camera-ready change to promise.
+- camera-ready edit to commit to.
 
-Keep subgoals reviewer-facing. Avoid work that will not change the response.
+Keep subgoals tied to decision risks. Avoid work that will not change the rebuttal.
 
-### 3. Build The Evidence Plan
+### 4. Build The Evidence Plan
 
-Classify each concern:
+Classify every concern:
 
-- `paper-evidence`: already answered by paper tables, figures, appendix, or text.
-- `artifact-evidence`: needs released code, generated outputs, logs, or repository inspection.
-- `new-analysis`: needs mining existing results into a new table or statistic.
-- `new-experiment`: needs a new run; estimate cost, time, and whether it is safe during rebuttal.
+- `paper-evidence`: already answered by paper tables, figures, appendix, equations, or text.
+- `artifact-evidence`: needs released code, generated outputs, logs, examples, or repository inspection.
+- `new-analysis`: needs mining existing results into a new table, statistic, or case taxonomy.
+- `new-experiment`: needs a new run; estimate cost, time, and whether the venue permits it.
 - `writing-fix`: needs clearer framing, scope, or claim calibration.
 
-Prefer paper evidence in the final rebuttal. Use artifact paths internally; in reviewer-facing text, cite paper tables/sections and mention released artifacts or camera-ready additions.
+Stats and concrete cases beat opinion. When disagreeing with a reviewer, first ask whether a table, paper line, artifact path, code excerpt, or small result analysis can settle the point.
 
-### 4. Coordinate Agent Team
+### 5. Coordinate Agent Team
 
-Use subagents only when the user asks for agent-team work or parallel investigation. Give each agent a bounded case, reviewer, experiment slice, or code/artifact audit. Ask for:
+Use subagents only when the user asks for agent-team work or parallel investigation. Give each agent a bounded reviewer, concern, case study, result table, artifact directory, or literature cluster. Ask for:
 
 - concrete findings;
-- paper table/section anchors;
-- artifact or code paths for internal verification;
+- paper table, figure, section, or appendix anchors;
+- repo-relative artifact or code paths for internal verification;
+- concise evidence snippets when needed;
 - recommended wording;
 - risks and overclaim warnings.
 
-Integrate agent output yourself. Do not paste raw agent reports into the rebuttal.
+Integrate and calibrate the output yourself. Do not paste raw agent reports into the rebuttal.
 
-### 5. Decide The Position
+### 6. Decide The Position
 
-For every reviewer concern, choose one stance:
+For every item, choose one stance before drafting:
 
 - `agree-and-clarify`: the reviewer is right; clarify and state the camera-ready change.
 - `agree-with-evidence`: the reviewer is directionally right; show existing evidence and add a scoped change.
-- `correct-misunderstanding`: politely cite the paper evidence that resolves it.
-- `new-supporting-analysis`: present a small existing-results analysis, not a rushed unsupported experiment.
-- `future-work-boundary`: acknowledge scope and frame it as a boundary without weakening the contribution.
+- `correct-misunderstanding`: politely cite evidence that resolves the issue.
+- `new-supporting-analysis`: present a small existing-results analysis, not a rushed unsupported claim.
+- `future-work-boundary`: acknowledge scope and frame it as a natural extension.
+- `objective-error`: correct a factual mischaracterization directly, with evidence and a calm tone.
 
-Write down the stance before drafting. Avoid arguing from emotion or fairness.
+Avoid arguing from emotion or fairness. If a review is objectively wrong, spotlight the factual issue for the AC without attacking the reviewer.
 
-### 6. Draft Venue-Ready Response
+### 7. Draft The Response
 
-Use this structure unless the venue format requires otherwise:
+Use this order unless the venue format requires otherwise:
 
-1. thank the reviewer and name the points they recognized;
-2. restate the contribution in one or two sentences;
-3. respond to each weakness under short labels;
-4. cite existing paper evidence first;
-5. mention released artifacts or planned camera-ready additions only when useful;
-6. end with a concrete revision commitment.
+1. Thank the reviewer and name the strengths they recognized.
+2. Restate the contribution in one or two self-contained sentences.
+3. Quote or label each concern concisely.
+4. Answer directly first. If the question is yes/no, start with yes/no or the nearest precise answer.
+5. Give evidence: paper table/figure/section first, then artifact/code/results evidence if needed.
+6. State the camera-ready change.
+7. End with a concise appreciation or concrete revision summary.
 
-Keep paragraphs compact. Use direct evidence and precise scope. Do not include local filesystem paths in final author responses.
+Do not merely promise. Explain the clarification, statistic, case evidence, or limitation in the rebuttal itself, then say it will be added to the paper.
 
-### 7. Anti-Defensive Final Pass
+### 8. Review, Trim, And Stress Test
 
-Apply the anti-defensive writing rules:
+Before finalizing:
 
-- lead with the claim and evidence;
-- thank without apologizing;
-- state necessary limitations once;
-- convert defensive caveats into positive scope;
-- remove repeated "we do not claim" framing;
-- replace vague hedges with evidence-based precision;
-- avoid overpromising new experiments or camera-ready claims.
+- compare the draft against the issue ledger and ensure every material concern is addressed;
+- check whether a neutral AC can understand the answer without rereading the paper;
+- prioritize major decision risks over minor typos under strict limits;
+- merge common concerns across reviewers only when it saves space without hiding reviewer-specific answers;
+- keep reviewer labels easy to scan;
+- remove defensive caveats, repeated apologies, and unsupported promises.
 
 ## Output Modes
 
 Choose the smallest useful output:
 
-- `intent map`: reviewer intent, risks, and response direction.
-- `evidence plan`: what to mine, what to run, and what to cite.
-- `working memo`: Chinese or English internal analysis with paths and detailed evidence.
+- `issue ledger`: verbatim comments, intent, risk, evidence class, stance, and planned answer.
+- `intent map`: reviewer intent, positive signals, risks, and response direction.
+- `evidence plan`: what to mine, what to run, what to cite, and what not to claim.
+- `working memo`: Chinese or English internal analysis with paths, code snippets, and detailed evidence.
 - `venue draft`: concise author response in the venue language and format.
-- `camera-ready plan`: exact additions to paper sections, tables, appendix, or limitations.
+- `camera-ready plan`: exact additions to paper sections, tables, appendix, examples, or limitations.
 
 ## Evolution Module
 

@@ -2,20 +2,33 @@
 
 Use official venue instructions first. If unknown, infer a conservative conference-style response.
 
+## General AC-Facing Pattern
+
+Write so the AC can evaluate the response without rereading the paper:
+
+```text
+We thank the reviewers for recognizing [shared strengths]. The paper introduces [one-sentence contribution]. We address the main concerns below.
+R1/W1: [direct answer + evidence + change].
+R2/Q1: [direct answer + evidence + change].
+```
+
+If reviewer-specific threads are allowed, still make each reply self-contained.
+
 ## ARR / ACL-Style
 
 Typical posture:
 
 - brief, factual, and focused on serious misunderstandings or key clarifications;
-- avoid large new experiments during the response window;
+- be careful with new experimental results if current instructions restrict them;
 - write in a way that helps action editors update the metareview.
 
 Pattern:
 
 ```text
-Thank you for the careful review. We address the main concern about [X].
-[Clarification with paper evidence.]
-[Revision commitment.]
+Thank you for the careful review and for recognizing [X]. We address the main concern about [Y].
+Concern: "[reviewer quote]."
+Response: [Direct clarification with paper evidence.]
+Change: [specific camera-ready edit.]
 ```
 
 ## AAAI-Style
@@ -31,8 +44,8 @@ Pattern:
 
 ```text
 We thank the reviewers for recognizing [X]. We address the main concerns:
-R1/W1: ...
-R2/W1: ...
+R1/W1: [direct answer + evidence + change].
+R2/W1: [direct answer + evidence + change].
 ```
 
 ## NeurIPS / ICLR / OpenReview-Style
@@ -47,7 +60,7 @@ Pattern:
 
 ```text
 Thank you for the question. The key point is [claim].
-Evidence: [table/figure/appendix].
+Evidence: [table/figure/appendix/case].
 Change: [camera-ready edit].
 ```
 
@@ -64,7 +77,7 @@ Pattern:
 
 ```text
 Comment 1: [quoted or summarized comment]
-Response: [answer]
+Response: [direct answer + evidence]
 Revision: [section/line change]
 ```
 
@@ -74,6 +87,14 @@ Choose format by venue constraints:
 
 - strict global word/character limit: compress across reviewers and prioritize decision risks;
 - OpenReview thread: answer each reviewer separately and keep each reply short;
-- camera-ready response letter: include exhaustive comment-response pairs;
-- internal memo: include paths, raw evidence, and longer reasoning.
+- camera-ready response letter: include exhaustive comment/response/revision pairs;
+- internal memo: include paths, raw evidence, and longer reasoning;
+- user asks for formal evidence: include concise case evidence in the draft, not only in the memo.
 
+## Reviewer Labels
+
+Make relevant replies easy to spot:
+
+- use reviewer tags such as `R1/W1`, `mU8h-Q1`, or the venue's official reviewer ids;
+- group shared concerns only when a merged answer is clearer;
+- when grouping, mention all affected reviewer ids in the label.
