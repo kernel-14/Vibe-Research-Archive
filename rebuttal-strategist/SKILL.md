@@ -23,6 +23,7 @@ Read these references before substantial work:
 - `references/rebuttal-workflow.md` for the staged process and issue-ledger schema.
 - `references/evidence-and-tone.md` before writing or revising response text.
 - `references/venue-patterns.md` when the venue, word limit, reviewer threading, or response format matters.
+- `references/response-assembly.md` when producing a polished final rebuttal, adapting RebuttalStudio-style per-issue structure, managing response labels, or compressing a long evidence draft into a submission-ready document.
 - `references/source-notes.md` only when the user asks why this workflow is designed this way or wants external writing guidance.
 
 For any nontrivial rebuttal, do not draft immediately. First create a reviewer issue ledger that quotes each material concern or question as faithfully as space allows, then analyze intent, evidence, and stance.
@@ -126,6 +127,8 @@ Use this order unless the venue format requires otherwise:
 Default to a complete venue-facing response that could be pasted into the rebuttal, not a plan, note, or evidence memo, unless the user asks for an internal draft. Use reviewer-facing language such as "Thank you for your..." or "As you pointed out..." instead of detached phrases such as "the reviewer says..." in final response text.
 
 Do not merely promise. Explain the clarification, statistic, case evidence, or limitation in the rebuttal itself, then say it will be added to the paper.
+
+For final venue drafts, assemble responses using an issue-block structure inspired by RebuttalStudio: opening paragraph, one block per material concern, concise quoted concern, direct response, evidence, and a closing summary. Keep labels scannable (`Response 1`, `W1`, `Q2`) and use Markdown blockquotes/tables when they help the reviewer and AC navigate.
 
 ### 8. Review, Trim, And Stress Test
 

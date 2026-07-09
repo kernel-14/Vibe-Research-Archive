@@ -57,6 +57,7 @@ Do not require the AC to connect unstated dots.
 - In reviewer-specific final responses, speak directly to the reviewer: "Thank you for your...", "As you pointed out...", "Your suggestion helps us clarify...".
 - Preserve reviewer order by default; consolidate only under strict limits or shared concerns.
 - Quote or label the concern before responding.
+- Prefer visible response blocks for final drafts: short concern title, concise reviewer quote, direct response, evidence, interpretation, and revision commitment.
 - Answer the direct question first, then provide context.
 - Respond to the reviewer's intent, not only the surface wording.
 - Use emphasis through sentence structure, not aggressive formatting.
@@ -66,6 +67,7 @@ Do not require the AC to connect unstated dots.
 - Use data, statistics, and concrete cases before intuitive argument.
 - Preserve concrete data tables and representative cases by default. When trimming, shorten prose and case-selection explanations before deleting evidence.
 - Make tables read like rebuttal evidence, not internal notes. Use audience-facing column names and explain what each table resolves.
+- For code/artifact comparisons, use compact audit tables when they clarify the claim: `Case`, `Score evidence`, `What our method does`, `What the baseline misses`, `Interpretation`.
 - Do not only promise; provide the explanation or evidence in the rebuttal.
 - Be receptive and reasonable when the reviewer is right.
 - Be transparent about constraints, venue rules, or compute limits.
@@ -91,6 +93,7 @@ Avoid:
 
 - detached final-response phrasing such as "the reviewer says..." when replying to one reviewer;
 - internal-note table columns such as "why relevant to the reviewer concern";
+- UI-specific formatting, decorative color syntax, HTML spans, and tool-only labels in final submission text;
 - "The reviewer is wrong..."
 - "This is not our problem..."
 - repeated "We do not claim..."
@@ -160,12 +163,27 @@ Reviewer-facing:
 Thank you for raising the question of generalization beyond the evaluated setting. PaperBench Code-Dev spans multiple AI/ML subfields, including vision-related and RL tasks.
 ```
 
+Verbose case discussion:
+
+```text
+We selected this case because it has a large score gap and many interesting implementation features. In the first file, ...
+```
+
+Submission-ready case table:
+
+```text
+| Case | Score evidence | Key difference | Interpretation |
+| --- | --- | --- | --- |
+| BBOX | Claude 86.4, Gemini 15.6 | Claude materializes Eq.3 and beam search; Gemini uses synthetic candidates and dummy artifacts. | The gap is contract execution fidelity, not keyword recall. |
+```
+
 ## Claim Safety Checklist
 
 Before finalizing, check:
 
 - Does each strong claim cite paper evidence, released artifacts, or a reproducible analysis?
 - Does each code case explain what it proves, rather than just displaying a snippet?
+- Does each response block have a concise reviewer quote and a direct answer before evidence?
 - Is any limitation repeated more than once?
 - Does the response promise only changes we can make?
 - Does each paragraph answer one reviewer concern?

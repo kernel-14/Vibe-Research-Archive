@@ -12,6 +12,7 @@ Confidence: high for the explicitly confirmed rebuttal preferences below. Update
 - Start positive by briefly reminding the AC of strengths reviewers recognized and the paper's contribution.
 - Final venue-facing text should usually be a complete rebuttal paragraph or section that can be pasted directly, not a plan, outline, or internal analysis note.
 - Open reviewer-specific replies by thanking the reviewer directly for the recognized contribution or constructive suggestion, then summarize the paper contribution and the concern being addressed.
+- For longer reviewer-specific replies, prefer a structured response-block format: opening paragraph, labeled `Response N` sections, concise reviewer quote, direct answer, evidence table/case audit, and a short closing summary.
 - Prefer answering reviewers in their own order unless a venue limit makes consolidation necessary.
 - Let reviewers speak first: quote or label the core concern, answer it directly, then explain.
 - In final rebuttal prose, use direct reviewer-facing language such as "Thank you for your...", "As you pointed out...", and "Your suggestion helps us clarify...". Avoid detached third-person phrasing like "the reviewer argues..." unless writing an internal memo or a cross-reviewer summary.
@@ -21,6 +22,7 @@ Confidence: high for the explicitly confirmed rebuttal preferences below. Update
 - If a reviewer asks for something already in the paper, cite the table/figure/section and restate the content in the rebuttal.
 - Do not only promise future edits. Provide the explanation, analysis, or case evidence in the response, then say it will be added to the paper.
 - Preserve concrete numbers, tables, and representative cases unless the user explicitly asks to cut them. When shortening, compress selection rationale and prose first; do not delete data that anchors the claim.
+- When a draft is long but evidence-rich, keep the key cases and convert verbose case narratives into compact tables before cutting evidence.
 - Prefer paper-facing evidence in final text. If artifact or code evidence is important, describe the finding and mention released/open-source artifacts or camera-ready additions; keep machine-local paths and long code excerpts in working memos.
 - Be receptive and transparent about real limits, compute constraints, venue rules, and future-work boundaries.
 - Push back on objective mischaracterizations with evidence, but keep the tone calm and professional.

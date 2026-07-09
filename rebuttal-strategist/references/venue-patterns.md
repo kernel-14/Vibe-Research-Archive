@@ -14,6 +14,22 @@ R2/Q1: [direct answer + evidence + change].
 
 If reviewer-specific threads are allowed, still make each reply self-contained.
 
+For long reviewer-specific replies, use a structured block format:
+
+```text
+Thank you for your careful review and for recognizing [strengths]. In this work, [brief contribution]. We address your main concerns below.
+
+Response 1: [Concern title]
+> Weakness 1: [concise quote]
+[direct answer + compact evidence + interpretation + change]
+
+Response 2: [Concern title]
+> Weakness 2: [concise quote]
+[direct answer + compact evidence + interpretation + change]
+
+In summary, [takeaway + concrete revision commitment]. Thank you again.
+```
+
 ## ARR / ACL-Style
 
 Typical posture:
@@ -30,6 +46,8 @@ Concern: "[reviewer quote]."
 Response: [Direct clarification with paper evidence.]
 Change: [specific camera-ready edit.]
 ```
+
+When ARR/OpenReview provides separate reviewer threads, prefer `Response 1`, `Response 2`, etc. for that reviewer rather than a global combined memo. This helps the reviewer map each answer back to their own weakness/question.
 
 ## AAAI-Style
 

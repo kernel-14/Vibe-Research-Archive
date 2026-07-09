@@ -105,6 +105,18 @@ If a strict word limit applies, compress only after every material concern has a
 
 Default to a polished, venue-facing response that can be used directly. Do not leave the output as bullet notes, a plan, or an evidence ledger unless the user asks for that mode. Use section labels such as `Response to W1` or `Concern: ...` when they improve scanability, but make each section read as author-response prose.
 
+For final submission drafts, use a per-issue assembly structure:
+
+```markdown
+## Response 1: [Short Concern Title]
+
+> **Weakness 1:** [concise reviewer quote]
+
+**Response:** [direct answer first.] [evidence.] [interpretation.] [revision commitment.]
+```
+
+This structure keeps the reviewer quote, answer, evidence, and paper-change commitment in one visible block. When multiple issues share the same answer, merge only if the merged block still names each original concern.
+
 For reviewer-specific replies, prefer direct second-person phrasing:
 
 - "Thank you for your careful assessment..."
@@ -115,6 +127,8 @@ For reviewer-specific replies, prefer direct second-person phrasing:
 Avoid detached final-response phrasing such as "the reviewer says", "the reviewer is concerned", or table columns like "why relevant to R2's concern". Those are acceptable in internal issue ledgers, not in the final rebuttal.
 
 When evidence is extensive, keep concrete numbers, tables, and representative cases, and shorten the explanation around why the cases were selected. If uncertain whether to remove a data point, keep it for the user's review.
+
+When compressing a long evidence memo into a submission-ready response, preserve numbers and representative cases first. Convert long case discussions into compact tables such as `Case | Score evidence | Key difference | Interpretation`. Remove repeated motivation, detailed path notes, and selection rationale before removing evidence.
 
 ## Phase 7: Review, Revise, And Trim
 
@@ -130,3 +144,5 @@ Check the draft against the original reviews and the ledger:
 - Tone is polite, receptive, and non-defensive.
 - Table headings and prose sound reviewer-facing rather than notebook-like.
 - The final section is a concise summary and thanks, not a separate "Camera-ready changes" chapter unless requested.
+- The assembled response has a clear opening, one labeled block per material concern, and a closing summary.
+- Long responses have been checked against the word/character budget and split only at natural issue boundaries if needed.
