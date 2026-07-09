@@ -90,7 +90,7 @@ This prevents defensive rambling and keeps the response aligned with evidence.
 Default response skeleton:
 
 ```text
-We thank the reviewer for recognizing [accepted contribution]. [Paper name]'s central contribution is [one or two self-contained sentences].
+Thank you for your careful review and for recognizing [accepted contribution]. In this work, [one- or two-sentence contribution]. We address your main concerns below.
 
 Concern: "[concise reviewer quote]."
 Response: [Direct answer first.] [Paper evidence.] [Artifact/code/result evidence if needed.] [What this means for the reviewer concern.] [Camera-ready change.]
@@ -98,10 +98,23 @@ Response: [Direct answer first.] [Paper evidence.] [Artifact/code/result evidenc
 Concern: "[concise reviewer quote]."
 Response: [Direct answer first.] [Evidence.] [Scope or limitation if needed.] [Camera-ready change.]
 
-We appreciate the suggestion and will revise the paper to include [specific changes].
+In summary, [one-sentence takeaway]. We will revise the paper to include [specific changes]. Thank you again for these constructive suggestions.
 ```
 
 If a strict word limit applies, compress only after every material concern has a draft answer.
+
+Default to a polished, venue-facing response that can be used directly. Do not leave the output as bullet notes, a plan, or an evidence ledger unless the user asks for that mode. Use section labels such as `Response to W1` or `Concern: ...` when they improve scanability, but make each section read as author-response prose.
+
+For reviewer-specific replies, prefer direct second-person phrasing:
+
+- "Thank you for your careful assessment..."
+- "As you pointed out..."
+- "Your suggestion helps us clarify..."
+- "We will revise the paper to..."
+
+Avoid detached final-response phrasing such as "the reviewer says", "the reviewer is concerned", or table columns like "why relevant to R2's concern". Those are acceptable in internal issue ledgers, not in the final rebuttal.
+
+When evidence is extensive, keep concrete numbers, tables, and representative cases, and shorten the explanation around why the cases were selected. If uncertain whether to remove a data point, keep it for the user's review.
 
 ## Phase 7: Review, Revise, And Trim
 
@@ -115,3 +128,5 @@ Check the draft against the original reviews and the ledger:
 - Statistics or cases support disagreements.
 - Camera-ready changes are concrete.
 - Tone is polite, receptive, and non-defensive.
+- Table headings and prose sound reviewer-facing rather than notebook-like.
+- The final section is a concise summary and thanks, not a separate "Camera-ready changes" chapter unless requested.

@@ -7,7 +7,7 @@ Use official venue instructions first. If unknown, infer a conservative conferen
 Write so the AC can evaluate the response without rereading the paper:
 
 ```text
-We thank the reviewers for recognizing [shared strengths]. The paper introduces [one-sentence contribution]. We address the main concerns below.
+Thank you for recognizing [shared strengths]. The paper introduces [one-sentence contribution]. We address the main concerns below.
 R1/W1: [direct answer + evidence + change].
 R2/Q1: [direct answer + evidence + change].
 ```
@@ -25,7 +25,7 @@ Typical posture:
 Pattern:
 
 ```text
-Thank you for the careful review and for recognizing [X]. We address the main concern about [Y].
+Thank you for your careful review and for recognizing [X]. We address your main concern about [Y].
 Concern: "[reviewer quote]."
 Response: [Direct clarification with paper evidence.]
 Change: [specific camera-ready edit.]
@@ -43,7 +43,7 @@ Typical posture:
 Pattern:
 
 ```text
-We thank the reviewers for recognizing [X]. We address the main concerns:
+Thank you for recognizing [X]. We address the main concerns:
 R1/W1: [direct answer + evidence + change].
 R2/W1: [direct answer + evidence + change].
 ```

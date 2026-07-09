@@ -54,6 +54,7 @@ Do not require the AC to connect unstated dots.
 ## Distilled Writing Rules
 
 - Start positive: briefly mention strengths reviewers recognized.
+- In reviewer-specific final responses, speak directly to the reviewer: "Thank you for your...", "As you pointed out...", "Your suggestion helps us clarify...".
 - Preserve reviewer order by default; consolidate only under strict limits or shared concerns.
 - Quote or label the concern before responding.
 - Answer the direct question first, then provide context.
@@ -63,6 +64,8 @@ Do not require the AC to connect unstated dots.
 - Keep the response self-contained.
 - Get credit for details already in the paper by citing and restating them.
 - Use data, statistics, and concrete cases before intuitive argument.
+- Preserve concrete data tables and representative cases by default. When trimming, shorten prose and case-selection explanations before deleting evidence.
+- Make tables read like rebuttal evidence, not internal notes. Use audience-facing column names and explain what each table resolves.
 - Do not only promise; provide the explanation or evidence in the rebuttal.
 - Be receptive and reasonable when the reviewer is right.
 - Be transparent about constraints, venue rules, or compute limits.
@@ -74,7 +77,9 @@ Do not require the AC to connect unstated dots.
 
 Use:
 
-- "We thank the reviewer for..."
+- "Thank you for your careful review and for recognizing..."
+- "As you pointed out..."
+- "Your suggestion helps us clarify..."
 - "We agree that..."
 - "The current results support..."
 - "The more precise interpretation is..."
@@ -84,6 +89,8 @@ Use:
 
 Avoid:
 
+- detached final-response phrasing such as "the reviewer says..." when replying to one reviewer;
+- internal-note table columns such as "why relevant to the reviewer concern";
 - "The reviewer is wrong..."
 - "This is not our problem..."
 - repeated "We do not claim..."
@@ -127,6 +134,30 @@ Stronger:
 
 ```text
 We will add a dedicated discussion of this boundary in the camera-ready version.
+```
+
+Notebook-like:
+
+```text
+| Category | Examples | Why relevant to R2's concern |
+```
+
+Reviewer-facing:
+
+```text
+| Area covered in the benchmark | Representative tasks | Reproduction capabilities tested |
+```
+
+Detached:
+
+```text
+The reviewer asks whether PaperBench covers multimodal tasks.
+```
+
+Reviewer-facing:
+
+```text
+Thank you for raising the question of generalization beyond the evaluated setting. PaperBench Code-Dev spans multiple AI/ML subfields, including vision-related and RL tasks.
 ```
 
 ## Claim Safety Checklist

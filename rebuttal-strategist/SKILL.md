@@ -115,13 +115,15 @@ Avoid arguing from emotion or fairness. If a review is objectively wrong, spotli
 
 Use this order unless the venue format requires otherwise:
 
-1. Thank the reviewer and name the strengths they recognized.
+1. Thank the reviewer directly and name the strengths they recognized.
 2. Restate the contribution in one or two self-contained sentences.
 3. Quote or label each concern concisely.
 4. Answer directly first. If the question is yes/no, start with yes/no or the nearest precise answer.
 5. Give evidence: paper table/figure/section first, then artifact/code/results evidence if needed.
 6. State the camera-ready change.
 7. End with a concise appreciation or concrete revision summary.
+
+Default to a complete venue-facing response that could be pasted into the rebuttal, not a plan, note, or evidence memo, unless the user asks for an internal draft. Use reviewer-facing language such as "Thank you for your..." or "As you pointed out..." instead of detached phrases such as "the reviewer says..." in final response text.
 
 Do not merely promise. Explain the clarification, statistic, case evidence, or limitation in the rebuttal itself, then say it will be added to the paper.
 
@@ -134,6 +136,7 @@ Before finalizing:
 - prioritize major decision risks over minor typos under strict limits;
 - merge common concerns across reviewers only when it saves space without hiding reviewer-specific answers;
 - keep reviewer labels easy to scan;
+- ensure headings, table columns, and summaries read like author-response text, not internal analysis notes;
 - remove defensive caveats, repeated apologies, and unsupported promises.
 
 ## Output Modes
