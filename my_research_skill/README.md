@@ -4,12 +4,14 @@
 
 ## 思路
 
-分为**输入侧（idea / topic 探索）** 与 **输出侧（论文产出）**：
+分为**输入侧（idea / topic 探索）** 与 **输出侧（论文产出）**，并在首尾各接一个外部 skill 作为闸门：
 
+- 输入起点：**`grill-me`**（外部，mattpocock/skills）— 动手前先追问需求，把模糊 brief 逼成可执行 spec。所有后续环节的前提。
 - 输入侧：`topic-mentor` / `paper-mentor` → `idea-extension` → `brainstorm-search` → `diffusion-idea`，从入门 → idea 审核打磨 → 全景调研 → 假设验证。其中 `topic-mentor` 从领域脉络入门，`paper-mentor` 从单篇论文锚定入门，`idea-extension` 把粗 idea 审核 + 打磨 + 延展。
 - 输出侧：`RA-Skill/` 下的四件套（figure / table / box / layout）+ 历史版本 `paper-figure-imagegen`。
-- 表格视觉侧：`table-beautifier` 沉淀了一组可直接复制的 LaTeX 表格美化模板和 PDF gallery，适合已有 TeX 表格的二次润色。
 - 写作逻辑侧：`intro-story-rewriter` 沉淀 Introduction 的 task → evidence → gap → method → metric/benchmark → result 叙事链，适合修正动机发散、证据来源混乱或过度抽象的开头。
+- 投稿应对：**`rebuttal-strategist`** — 审稿意见 → issue ledger → 证据计划 → venue-ready author response。
+- 输出终点：**`anti-defensive-writing`**（外部，Kiterlin/anti-defensive-writing）— 去掉学术写作里的防御性措辞，让 claim 更直接、更 claim-forward。
 
 设计原则：
 
@@ -21,28 +23,48 @@
 
 ```
 my_research_skill/
-  topic-mentor/              # 第一性原理 + 费曼学习法导师（领域脉络入门）
-  paper-mentor/              # 单篇论文锚定精读 + 第一性原理延展 + idea 孵化
-  idea-extension/            # idea 审核 + 打磨 + 延展（review / optimize / extend）
-  brainstorm-search/         # 多角度调研 → 文献全景
-  diffusion-idea/            # idea 演化 + 多 critic 验证
-  table-beautifier/          # LaTeX 表格视觉美化模板 + PDF gallery
-  intro-story-rewriter/      # Introduction story line 重写 + 证据链检查
+  [外部] grill-me/                   # 需求澄清：动手前先把 brief 问清楚（mattpocock/skills）
+  topic-mentor/                      # 第一性原理 + 费曼学习法导师（领域脉络入门）
+  paper-mentor/                      # 单篇论文锚定精读 + 第一性原理延展 + idea 孵化
+  idea-extension/                    # idea 审核 + 打磨 + 延展（review / optimize / extend）
+  brainstorm-search/                 # 多角度调研 → 文献全景
+  diffusion-idea/                    # idea 演化 + 多 critic 验证
+  table-beautifier/                  # LaTeX 表格视觉美化模板 + PDF gallery
+  intro-story-rewriter/              # Introduction story line 重写 + 证据链检查
+  rebuttal-strategist/               # 审稿意见 → issue ledger → 证据计划 → author response
   RA-Skill/
     skills/
-      paper-figure-studio/   # 论文图：可换风格预设
-      paper-table-polisher/  # LaTeX 表格美化 + 语义高亮
-      paper-layout-fixer/    # 编译日志诊断 + 局部修复
-      paper-box-styler/      # 附录 prompt/code/case/theorem 盒子
-    shared/                  # 共用 palette / fonts / sty
-    proposal.md              # 原始需求
-    research.md              # 设计调研与决策依据
-  paper-figure-imagegen/     # 单论文专用的初代版本
+      paper-figure-studio/           # 论文图：可换风格预设
+      paper-table-polisher/          # LaTeX 表格美化 + 语义高亮
+      paper-layout-fixer/            # 编译日志诊断 + 局部修复
+      paper-box-styler/              # 附录 prompt/code/case/theorem 盒子
+    shared/                          # 共用 palette / fonts / sty
+    proposal.md                      # 原始需求
+    research.md                      # 设计调研与决策依据
+  paper-figure-imagegen/             # 单论文专用的初代版本
+  [外部] anti-defensive-writing/     # 去防御性写作，让 claim 更直接（Kiterlin/anti-defensive-writing）
 ```
 
 ---
 
 ## 输入侧 Skill
+
+### [外部] grill-me — 动手前的需求澄清
+
+**来源**：[mattpocock/skills](https://github.com/mattpocock/skills)（200k★），整个仓库是 mattpocock 的 `.agents` 目录开源，其中 `/grill-me` 是最出圈的一个 skill。
+
+**用途**：在你丢出一个模糊 brief 之后、agent 动手之前，先反过来追问你几个关键问题——目标是什么、受众是谁、约束条件有哪些、什么算 done。把"帮我做个 X"逼成可执行的 spec。**不是科研专用**，但放在工作流最前面能避免后面所有环节跑偏。
+
+**触发**：`/grill-me`、"帮我把这个需求问清楚"、"grill me on this"。
+
+**核心思路**：只有几句话的 prompt，核心就一条——先问再动。跟 `topic-mentor` 的区别是：`topic-mentor` 用 Socratic 提问教你知识，`grill-me` 用追问帮你把任务定义清楚。
+
+**安装**：
+```bash
+# 项目级
+cp -r ~/.codebuddy/plugins/cache/codebuddy-plugins-official/grill-me .  # 或用 git clone
+# 然后放到对应 agent 的 skills 目录
+```
 
 ### topic-mentor — 入门一个新方向
 
@@ -207,6 +229,35 @@ python skills/paper-layout-fixer/scripts/latex_log_report.py build/paper.log --f
 
 最早写的版本，比 `paper-figure-studio` 简单，只针对一篇论文的固定风格。**已删掉硬编码的 API key 和 base URL**——现在凭证全部从 `OPENAI_API_KEY` / `OPENAI_BASE_URL` 或 `.env` 读取。保留它是因为它已经是单论文场景的最小可用形态。
 
+### rebuttal-strategist — 审稿意见应对
+
+**用途**：收到审稿意见后，把散乱的 review 变成一份清晰的 issue ledger → 证据计划 → venue-ready author response。默认姿态是 calm / grateful / precise / non-defensive：逐句理解审稿人、先回答直接问题、用证据支撑、让 AC 只看 rebuttal 就能判断。
+
+**触发**：`/rebuttal-strategist`、"帮我回一下这轮审稿意见"、"写 rebuttal"、"respond to reviewers"。
+
+**8 阶段工作流**：verbatim issue ledger → 审稿人意图诊断 → 目标拆解 → 证据计划（paper / artifact / new-analysis / new-experiment / writing-fix 五类）→ 多 agent 协同取证 → 决定 stance（agree-and-clarify / correct-misunderstanding / future-work-boundary 等）→ 起草 response → 审查精简 + stress test。
+
+**输出模式**（按需选最小够用的一种）：issue ledger / intent map / evidence plan / working memo / venue draft / camera-ready plan。
+
+**关键约束**：
+- 永远先建 issue ledger 再动笔，不跳过正面评价。
+- 回应意图而非字面；"Why not X?" 要判断真正关心的是 coverage / validity / fairness / reproducibility / novelty / scope 里的哪一个。
+- Stats 和具体案例胜过观点；不同意审稿人时先找 table/figure/code 能不能一锤定音。
+- 最终产出是 venue-facing 完整回复，不是内部 memo。
+- 内置 evolution module：每次 substantial use 后总结 1-3 条用户偏好观察，**必须经用户确认**才写入 profile/skill。
+
+**参考文件**：`references/user-profile.md` / `rebuttal-workflow.md` / `evidence-and-tone.md` / `venue-patterns.md` / `response-assembly.md` / `source-notes.md`。
+
+### [外部] anti-defensive-writing — 去掉防御性措辞
+
+**来源**：[Kiterlin/anti-defensive-writing](https://github.com/Kiterlin/anti-defensive-writing)（Codex skill）。
+
+**用途**：学术写作里常见的防御性习惯——过度预判反对意见、堆砌边界条件、反复强调 limitation、弱化自己的 claim——会让论文读起来心虚。这个 skill 审查并改写文本，让 prose 更 direct、precise、claim-forward，同时保留必要的 scope/methodological/legal 限定。
+
+**触发**：`/anti-defensive-writing`、"帮我把这段改得更自信一点"、"remove defensive writing"。
+
+**跟 `intro-story-rewriter` 的关系**：前者管逻辑链（motivation → gap → method → result），后者管语气和 claim 力度。两者正交，通常先用 intro-story-rewriter 理顺结构，再用 anti-defensive-writing 打磨语气。
+
 ---
 
 ## 示例
@@ -215,11 +266,14 @@ python skills/paper-layout-fixer/scripts/latex_log_report.py build/paper.log --f
 
 | Skill | 示例内容 | 结果 |
 | --- | --- | --- |
+| `grill-me` [外部] | — | 需求澄清对话，不产生文件 |
 | `topic-mentor` | `example/topic-mentor/prompt.md` | `example/topic-mentor/result.md` |
 | `brainstorm-search` | `example/brainstorm-search/prompt.md` | `example/brainstorm-search/result.md` |
 | `diffusion-idea` | `example/diffusion-idea/prompt.md` | `example/diffusion-idea/result.md` |
 | `table-beautifier` | `table-beautifier/assets/gallery/table-gallery.tex` | `table-beautifier/assets/gallery/table-gallery.pdf` |
 | `intro-story-rewriter` | `intro-story-rewriter/references/intro-evidence-chain.md` | Introduction evidence-chain checklist |
+| `rebuttal-strategist` | `rebuttal-strategist/references/rebuttal-workflow.md` | issue ledger + venue draft |
+| `anti-defensive-writing` [外部] | — | 改写后的文本段落 |
 | `paper-figure-studio` | `example/paper-figure-studio/brief.md` + `command.md` | `example/paper-figure-studio/overview.png` |
 | `paper-table-polisher` | `example/paper-table-polisher/results.csv` + `command.md` | `example/paper-table-polisher/main_table.tex` |
 | `paper-layout-fixer` | `example/paper-layout-fixer/paper.tex` + `command.md` | `example/paper-layout-fixer/build/report.md` |
@@ -235,15 +289,19 @@ python skills/paper-layout-fixer/scripts/latex_log_report.py build/paper.log --f
 把对应目录复制到 Claude Code 的 skills 位置（项目级 `.claude/skills/<skill-name>/` 或全局 `~/.claude/skills/<skill-name>/`），然后：
 
 ```text
+/grill-me 帮我做一个 X 方向的 survey
 /topic-mentor 我想搞懂 GRPO
 /paper-mentor https://arxiv.org/abs/2305.18290 带我精读 DPO 这篇
 /idea-extension 评一下这个 idea：用对比学习改进长文档检索
 /brainstorm-search 用 diffusion 的视角重新看 RAG
+/diffusion-idea 帮我把这个 idea 跑一轮验证
 用 paper-figure-studio 帮我画一张方法总览图，风格用 colorful-method
 用 table-beautifier 把这段 LaTeX 表格改成 rank cells + ours delta 风格
 用 intro-story-rewriter 改一下 Introduction，让动机、证据和贡献链路更清楚
 用 paper-table-polisher 把 results.csv 转成 ablation 表，best 加粗
 用 paper-layout-fixer 看一下 paper.tex 第 7 页为什么图跑飞了
+/rebuttal-strategist 帮我回一下这轮审稿意见
+用 anti-defensive-writing 把这段 response 改得更 claim-forward
 ```
 
 ### Codex
